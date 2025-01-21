@@ -3,7 +3,9 @@
     <ul class="bottomBar__icons">
       @for (icon of Icons; track $index) {
       <li class="bottomBar__icons__icon">
-        <lucide-angular [img]="icon"></lucide-angular>
+        <a [routerLink]="icon.path" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" aria-current="page">
+          <lucide-angular [name]="icon.icon"></lucide-angular>
+        </a>
       </li>
       }
     </ul>

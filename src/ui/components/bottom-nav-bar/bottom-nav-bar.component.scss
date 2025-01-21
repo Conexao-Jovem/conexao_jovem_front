@@ -18,7 +18,13 @@
     justify-content: space-between;
 
     &__icon {
-      color: colors.$gray-11;
+      > a {
+        color: colors.$gray-11;
+      }
     }
   }
+}
+
+.active {
+  color: colors.$purple-9 !important;
 }
