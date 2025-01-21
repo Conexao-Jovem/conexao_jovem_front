@@ -21,10 +21,18 @@
         <a>Ver Escalas</a>
       </header>
       <ul>
-        <li><app-ministery-scale-card></app-ministery-scale-card></li>
-        <li><app-ministery-scale-card></app-ministery-scale-card></li>
-        <li><app-ministery-scale-card></app-ministery-scale-card></li>
-        <li><app-ministery-scale-card></app-ministery-scale-card></li>
+        @for (ministeryScale of ministerysScale; track $index) {
+        <li>
+          <app-ministery-card
+            [isScaleCard]="true"
+            [groupName]="ministeryScale.groupName"
+            [groupPrincipal]="ministeryScale.groupPrincipal"
+            [groupImg]="ministeryScale.groupImg"
+            [members]="ministeryScale.members"
+            [groupStatus]="ministeryScale.groupStatus"
+          />
+        </li>
+        }
       </ul>
     </article>
   </section>

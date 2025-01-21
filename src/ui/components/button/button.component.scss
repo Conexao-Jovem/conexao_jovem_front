@@ -1,0 +1,104 @@
+@use '../../styles/mixins' as mixins;
+@use '../../styles/colors' as colors;
+
+.button {
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.3s ease;
+  color: colors.$gray-12;
+
+  @include mixins.center-content;
+  @include mixins.card-base-style;
+
+  gap: 8px;
+
+  &[data-rounded='true'] {
+    border-radius: 50px;
+  }
+}
+
+.button--disabled {
+  background-color: #d8d9e0 !important;
+}
+
+.button--none--icon {
+  color: colors.$purple-9 !important;
+  background-color: colors.$purple-3 !important;
+  aspect-ratio: 1;
+  border-radius: 6px !important;
+  width: 32px;
+  padding: 16px !important;
+  @include mixins.center-content;
+}
+
+.button:hover {
+  background-color: #eff0f3;
+}
+
+.button--primary--contained,
+.button--cancel--contained,
+.button--submit--contained {
+  color: white;
+}
+
+.button--primary--contained {
+  background-color: colors.$purple-9;
+}
+
+.button--primary--contained:hover {
+  background-color: colors.$purple-10;
+}
+
+.button--primary {
+  color: colors.$purple-9;
+}
+
+.button--cancel--contained {
+  background-color: #e5484d;
+}
+
+.button--cancel {
+  color: #e5484d;
+  font-weight: 600;
+}
+
+.button--submit--contained {
+  background-color: #30a46c;
+}
+
+.button--submit {
+  color: #30a46c;
+}
+
+.ripple {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  animation: ripple 0.5s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  to {
+    transform: translate(-50%, -50%) scale(4);
+    opacity: 0;
+  }
+}
+
+.button--withIcon {
+  padding: 8px 12px !important;
+  font-weight: 400 !important;
+  gap: 4px !important;
+  @include mixins.vertical-align;
+  justify-content: center;
+}

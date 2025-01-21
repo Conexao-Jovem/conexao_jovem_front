@@ -1,0 +1,42 @@
+@use '../../styles/colors' as colors;
+@use '../../styles/mixins' as mixins;
+
+.card {
+  @include mixins.card-base-style;
+
+  padding: 12px;
+  border-radius: 12px;
+
+  &,
+  &__user {
+    @include mixins.vertical-align;
+  }
+
+  &__user {
+    gap: 8px;
+    > img {
+      aspect-ratio: 1/1.25;
+      width: 20%;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    > hgroup {
+      > h3 {
+        color: colors.$gray-12;
+        font-weight: 500;
+        margin-bottom: 4px;
+      }
+
+      > h4 {
+        font-weight: 400;
+        font-size: 12px;
+      }
+    }
+  }
+
+  &__actions {
+    @include mixins.vertical-align;
+    gap: 4px;
+  }
+}

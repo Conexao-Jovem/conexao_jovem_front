@@ -1,0 +1,20 @@
+@use '../../../ui/styles/colors' as colors;
+@use '../../../ui/styles/mixins' as mixins;
+
+.container {
+  padding: 24px 16px 68px 16px;
+  position: relative;
+
+  &__header {
+    @include mixins.vertical-align;
+    justify-content: space-between;
+  }
+
+  &__ministerys {
+    margin: 16px 0;
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+}

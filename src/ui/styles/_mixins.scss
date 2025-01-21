@@ -7,3 +7,8 @@
   background-color: #fff;
   box-shadow: 0 1px 4px 0 rgba($color: #000000, $alpha: 0.1);
 }
+
+@mixin center-content {
+  @include vertical-align();
+  justify-content: center;
+}
