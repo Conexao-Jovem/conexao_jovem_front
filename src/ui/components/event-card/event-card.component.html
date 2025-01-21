@@ -1,12 +1,12 @@
-<article>
-  <header>
-    <div>
-      <p>{{ date.getDay() }}</p>
-      <p>{{ getMonthNameByNumber(date.getMonth()) }}</p>
+<article class="eventCard" [style.backgroundImage]="'url(' + imgUrl + ')'">
+  <header class="eventCard__header">
+    <div class="eventCard__calendar">
+      <p>{{ day }}</p>
+      <p>{{ month }}</p>
     </div>
-    <p>{{ currentMembers }}/{{ maxMembers }}</p>
+    <p class="eventCard__ticketsBought">{{ currentMembers }}/{{ maxMembers }}</p>
   </header>
-  <footer>
+  <footer class="eventCard__footer">
     <p>{{ title }}</p>
     <p>{{ description }}</p>
   </footer>

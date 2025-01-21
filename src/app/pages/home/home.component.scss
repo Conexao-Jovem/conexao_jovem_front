@@ -1,0 +1,30 @@
+@use '../../../ui/styles/colors' as colors;
+@use '../../../ui/styles/mixins' as mixins;
+
+.section {
+  margin-top: 24px;
+}
+
+.eventList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  &__header {
+    justify-content: space-between;
+    @include mixins.vertical-align;
+
+    > h3 {
+      color: colors.$gray-12;
+      font-weight: 500;
+      font-size: 18px;
+    }
+
+    > a {
+      text-decoration: underline;
+      color: colors.$purple-9;
+      font-size: 12px;
+      cursor: pointer;
+    }
+  }
+}
