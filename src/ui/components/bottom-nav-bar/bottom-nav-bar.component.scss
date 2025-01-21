@@ -1,0 +1,24 @@
+@use '../../styles/mixins' as mixins;
+@use '../../styles/colors' as colors;
+
+.bottomBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  box-shadow: 0 -1px 4px 0 rgba($color: #000000, $alpha: 0.1);
+  background-color: #fff;
+
+  &__nav {
+    padding: 16px 32px;
+  }
+
+  &__icons {
+    @include mixins.vertical-align;
+    justify-content: space-between;
+
+    &__icon {
+      color: colors.$gray-11;
+    }
+  }
+}

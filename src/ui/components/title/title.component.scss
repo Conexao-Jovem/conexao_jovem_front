@@ -1,0 +1,16 @@
+@use '../../styles/colors' as colors;
+
+.container {
+  &__title {
+    font-size: 24px;
+    color: colors.$gray-12;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  &__subTitle {
+    color: colors.$gray-11;
+    font-weight: 400;
+    font-size: 12px;
+  }
+}

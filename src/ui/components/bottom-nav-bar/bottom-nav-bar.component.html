@@ -1,1 +1,11 @@
-<p>bottom-nav-bar works!</p>
+<article class="bottomBar">
+  <nav class="bottomBar__nav">
+    <ul class="bottomBar__icons">
+      @for (icon of Icons; track $index) {
+      <li class="bottomBar__icons__icon">
+        <lucide-angular [img]="icon"></lucide-angular>
+      </li>
+      }
+    </ul>
+  </nav>
+</article>
