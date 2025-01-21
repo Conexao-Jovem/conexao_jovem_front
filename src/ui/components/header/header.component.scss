@@ -4,6 +4,10 @@
 .header {
   background-color: #fff;
   width: 100dvw;
+  position: sticky;
+  top: 0;
+  transition: 0.3s;
+  z-index: 1000;
 
   &__left,
   &__nav,

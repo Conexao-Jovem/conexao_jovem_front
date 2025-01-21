@@ -1,1 +1,22 @@
-<p>ministery-scale-card works!</p>
+<article class="card">
+  <header class="card__header">
+    <div class="card__description">
+      <img [src]="groupImg" alt="Imagem do grupo: {{ groupName }}" />
+      <hgroup>
+        <h3>{{ groupName }}</h3>
+        <h4>{{ groupPrincipal }}</h4>
+      </hgroup>
+    </div>
+    <app-status-label [status]="groupStatus"></app-status-label>
+  </header>
+  <div class="card__members">
+    <p>Membros</p>
+    <ul>
+      @for (member of members; track $index) {
+      <li>
+        <img [src]="member.url" [alt]="member.name" />
+      </li>
+      }
+    </ul>
+  </div>
+</article>

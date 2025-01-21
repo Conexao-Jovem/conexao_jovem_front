@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { TitleComponent } from '../../../ui/components/title/title.component';
 import { EventCardComponent } from '../../../ui/components/event-card/event-card.component';
+import { MinisteryScaleCardComponent } from '../../../ui/components/ministery-scale-card/ministery-scale-card.component';
 
 @Component({
   selector: 'app-home',
-  imports: [TitleComponent, EventCardComponent],
+  imports: [TitleComponent, EventCardComponent, MinisteryScaleCardComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

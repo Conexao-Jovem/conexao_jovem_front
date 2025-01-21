@@ -1,6 +1,7 @@
 @use '../../styles/colors' as colors;
 
 .container {
+  margin-bottom: 24px;
   &__title {
     font-size: 24px;
     color: colors.$gray-12;

@@ -1,0 +1,11 @@
+.status {
+  padding: 8px 12px;
+  font-size: 12px;
+  border-radius: 50px;
+}
+
+.status-confirmado {
+  background-color: rgba($color: #34c759, $alpha: 0.1);
+  color: #34c759;
+  text-transform: capitalize;
+}

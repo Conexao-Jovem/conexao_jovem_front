@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Bell, LucideAngularModule } from 'lucide-angular';
 import { MenuIconComponent } from '../../icons/menu-icon/menu-icon.component';
 
@@ -10,4 +10,10 @@ import { MenuIconComponent } from '../../icons/menu-icon/menu-icon.component';
 })
 export class HeaderComponent {
   readonly BellIcon = Bell;
+  isSticky = false;
+
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll() {
+    this.isSticky = window.scrollY > 0;
+  }
 }
