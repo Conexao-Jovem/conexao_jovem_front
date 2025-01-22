@@ -1,0 +1,19 @@
+@use '../../styles/colors' as colors;
+@use '../../styles/mixins' as mixins;
+.toggle{
+  @include mixins.vertical-align;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 500;
+  width: 71px;
+  height: 31px;
+  color: colors.$gray-10;
+  border: 1px solid colors.$gray-5;
+  border-radius: 37px;
+}
+
+.color{
+  background-color: colors.$purple-a9;
+  color: white;
+}
+

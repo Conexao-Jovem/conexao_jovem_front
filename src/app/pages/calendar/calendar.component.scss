@@ -1,0 +1,15 @@
+@use '../../../ui/styles/mixins' as mixins;
+.flex {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.flex-content {
+  @include mixins.vertical-align;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.flex-content > * {
+  flex: 1;
+}

@@ -1,8 +1,9 @@
 @use '../../styles/colors' as colors;
 
 .container {
-  margin-bottom: 24px;
+
   &__title {
+
     font-size: 24px;
     color: colors.$gray-12;
     font-weight: 600;
@@ -13,5 +14,6 @@
     color: colors.$gray-11;
     font-weight: 400;
     font-size: 12px;
+    margin-bottom: 24px;
   }
 }

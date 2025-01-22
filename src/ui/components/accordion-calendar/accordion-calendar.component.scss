@@ -1,0 +1,46 @@
+@use '../../styles/colors' as colors;
+@use '../../styles/mixins' as mixins;
+
+
+.card-accordion-header{
+  @include mixins.vertical-align;
+  justify-content: space-between;
+  border-bottom: 1px solid colors.$gray-3;
+  margin: 6px 0;
+  padding: 12px;
+
+}
+
+.containerAcordion{
+  box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  
+  background-color: white;
+  border-radius: 12px;
+
+}
+
+.active-class {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+
+.card-accordion-content{
+  display: flex;
+  padding: 12px;
+}
+
+.accordion-status{
+  display: flex;
+  justify-content: end;
+}
+
+.accordion-title, h4{
+  font-size: 12px;
+  font-weight: 500;
+  color: colors.$gray-11;
+
+}

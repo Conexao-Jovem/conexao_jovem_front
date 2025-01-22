@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="content">
+    <p>{{ ministery }}</p>
+    <span>{{ amount }}</span>
+  </div>
+  <div class="flex">
+    <lucide-angular 
+      size="20" 
+      [name]="isPending ? PedingIcon : CheckIcon"
+      [class.icon-pending]="isPending"
+      [class.icon-check]="!isPending">
+    </lucide-angular>
+  </div>
+</div>

@@ -14,6 +14,7 @@ export class EventCardComponent implements OnInit {
   @Input() title: string = '';
   @Input() description?: string;
   @Input() imgUrl: string = '';
+  @Input() price?: string = '';
   protected month: string = '';
   protected day: number = 0;
 

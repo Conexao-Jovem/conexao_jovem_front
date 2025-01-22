@@ -1,0 +1,45 @@
+@use '../../styles/colors' as colors;
+@use '../../styles/mixins' as mixins;
+
+.container{
+  @include mixins.vertical-align;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  flex: 1;
+  margin-bottom: 12px;
+  border-bottom: 1px solid colors.$gray-3;
+}
+.content{
+ display: flex;
+ gap: 6px;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 4px;;
+  border-left: 1px solid blue;
+    height: 30px;
+  p {
+    font-size: 10px;
+    font-weight: 500;
+  }
+
+  span{
+    font-size: 8px;
+    font-weight: 500;
+    color: colors.$gray-11;
+  }
+
+  .flex {
+    @include mixins.vertical-align;
+    justify-content: center;
+  }
+}
+
+
+
+.icon-pending {
+  color: colors.$pedding; /* Cor para o status "pending" */
+}
+
+.icon-check {
+  color: colors.$completed; /* Cor para o status "check" */
+}
