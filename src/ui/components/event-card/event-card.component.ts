@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { DateUtilsService } from '../../../data/utils/date-utils.service';
+import { DateUtilsService } from '../../../data/utils/dateUtils/date-utils.service';
 
 @Component({
   selector: 'app-event-card',
