@@ -1,6 +1,6 @@
 <header [class.sticky]="isSticky" class="header">
   <div class="header__nav">
-    <i>
+    <i (click)="toggleSidebar()">
       <app-menu-icon></app-menu-icon>
     </i>
     <div class="header__left">
