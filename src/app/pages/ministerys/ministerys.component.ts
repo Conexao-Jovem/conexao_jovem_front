@@ -1,8 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { TitleComponent } from '../../../ui/components/title/title.component';
 import { ButtonComponent } from '../../../ui/components/button/button.component';
 import { Filter, LucideAngularModule } from 'lucide-angular';
 import { MinisteryCardComponent } from '../../../ui/components/ministery-card/ministery-card.component';
+import { MinisteryService } from '../../../data/services/ministery/ministery.service';
+import { Ministery } from '../../../data/services/ministery/@types/find.dto';
 
 @Component({
   selector: 'app-ministerys',
@@ -10,38 +12,21 @@ import { MinisteryCardComponent } from '../../../ui/components/ministery-card/mi
   templateUrl: './ministerys.component.html',
   styleUrl: './ministerys.component.scss'
 })
-export class MinisterysPage {
+export class MinisterysPage implements OnInit {
   readonly FilterIcon = Filter;
-  @Input() ministerys: { name: string; totalMembers: number; imgUrl: string }[] = [
-    {
-      name: 'Ministério de Louvor',
-      imgUrl: 'https://github.com/Conexao-Jovem.png',
-      totalMembers: 12
-    },
-    {
-      name: 'Ministério de Louvor',
-      imgUrl: 'https://github.com/Conexao-Jovem.png',
-      totalMembers: 12
-    },
-    {
-      name: 'Ministério de Louvor',
-      imgUrl: 'https://github.com/Conexao-Jovem.png',
-      totalMembers: 12
-    },
-    {
-      name: 'Ministério de Louvor',
-      imgUrl: 'https://github.com/Conexao-Jovem.png',
-      totalMembers: 12
-    },
-    {
-      name: 'Ministério de Louvor',
-      imgUrl: 'https://github.com/Conexao-Jovem.png',
-      totalMembers: 12
-    },
-    {
-      name: 'Ministério de Louvor',
-      imgUrl: 'https://github.com/Conexao-Jovem.png',
-      totalMembers: 12
-    }
-  ];
+  ministerys: Ministery[] = [];
+
+  constructor(private readonly ministeryService: MinisteryService) {}
+
+  ngOnInit(): void {
+    this.ministeryService.find().subscribe({
+      next: response => {
+        this.ministerys = response.data;
+        console.log('Ministérios carregados:', this.ministerys);
+      },
+      error: error => {
+        console.error('Erro ao carregar ministérios:', error);
+      }
+    });
+  }
 }

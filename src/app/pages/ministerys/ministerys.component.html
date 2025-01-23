@@ -7,7 +7,7 @@
   <ul class="container__ministerys">
     @for (ministery of ministerys; track $index) {
     <li>
-      <app-ministery-card [groupImg]="ministery.imgUrl" [groupName]="ministery.name" [groupTotalMembers]="ministery.totalMembers" />
+      <app-ministery-card [groupImg]="ministery.imgUrl" [groupName]="ministery.name" [groupTotalMembers]="ministery.members.length" />
     </li>
     }
   </ul>

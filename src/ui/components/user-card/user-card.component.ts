@@ -11,7 +11,7 @@ import { TwoDotIconComponent } from '../../icons/two-dot-icon/two-dot-icon.compo
 })
 export class UserCardComponent {
   @Input() name: string = '';
-  @Input() group: string = '';
+  @Input() ministeryId: number = 0;
   @Input() imgUrl: string = '';
   readonly EditIcon = Pencil;
 }
