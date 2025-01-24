@@ -2,7 +2,7 @@
   <app-title title="Membros" subTitle="Gerencie os membros da classe"></app-title>
   <div class="container__header">
     <app-button [withIcon]="true"><lucide-angular size="18" [img]="FilterIcon"></lucide-angular>Filtros</app-button>
-    <app-button [color]="'primary'" [variant]="'contained'">Novo</app-button>
+    <app-button routerLink="new" [color]="'primary'" [variant]="'contained'">Novo</app-button>
   </div>
   <ul class="container__members">
     @for (member of members; track $index) {

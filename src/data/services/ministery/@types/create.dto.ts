@@ -12,11 +12,11 @@ export class CreateMinisteryDto {
   name!: string;
 
   /**
-   * Lista de membros associados ao ministério.
-   * @type {User[]}
-   * @example [{ id: 1, name: "João Silva" }, { id: 2, name: "Maria Souza" }]
+   * Lista dos id dos membros associados ao ministério.
+   * @type {string[]}
+   * @example [{ id: 1}, { id: 2 }]
    */
-  members!: User[];
+  membersId!: string[];
 
   /**
    * Nome ou identificação do principal responsável pelo ministério.

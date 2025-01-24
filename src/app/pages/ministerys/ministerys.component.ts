@@ -5,10 +5,11 @@ import { Filter, LucideAngularModule } from 'lucide-angular';
 import { MinisteryCardComponent } from '../../../ui/components/ministery-card/ministery-card.component';
 import { MinisteryService } from '../../../data/services/ministery/ministery.service';
 import { Ministery } from '../../../data/services/ministery/@types/find.dto';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-ministerys',
-  imports: [TitleComponent, ButtonComponent, LucideAngularModule, MinisteryCardComponent],
+  imports: [TitleComponent, ButtonComponent, LucideAngularModule, MinisteryCardComponent, RouterModule],
   templateUrl: './ministerys.component.html',
   styleUrl: './ministerys.component.scss'
 })

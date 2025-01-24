@@ -5,10 +5,11 @@ import { UserCardComponent } from '../../../ui/components/user-card/user-card.co
 import { Filter, LucideAngularModule } from 'lucide-angular';
 import { User } from '../../../data/services/user/@types/find.dto';
 import { UserService } from '../../../data/services/user/user.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-members',
-  imports: [TitleComponent, ButtonComponent, UserCardComponent, LucideAngularModule],
+  imports: [TitleComponent, ButtonComponent, UserCardComponent, LucideAngularModule, RouterModule],
   templateUrl: './members.component.html',
   styleUrl: './members.component.scss'
 })
