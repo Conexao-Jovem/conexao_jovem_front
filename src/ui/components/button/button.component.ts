@@ -13,7 +13,9 @@ export class ButtonComponent {
   @Input() variant?: 'contained' | 'icon';
   @Input() roundedFull?: boolean;
   @Input() withIcon?: boolean;
+  @Input() type: HTMLButtonElement['type'] = 'button';
   @Output() btnClick = new EventEmitter<MouseEvent>();
+  @Input() customStyle: { [key: string]: string } = {};
 
   ripples: Ripple[] = [];
 

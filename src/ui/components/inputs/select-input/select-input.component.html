@@ -1,0 +1,12 @@
+<div class="container">
+  @if (label) {
+  <label class="container__label" [htmlFor]="inputProps.id || inputProps.name">{{ label }}</label>
+  }
+  <select class="container__select" [name]="inputProps.name" [ariaPlaceholder]="inputProps.ariaPlaceholder">
+    @for (option of Options; track $index) {
+    <option [value]="option.value" [label]="option.label">
+      {{ option.label }}
+    </option>
+    }
+  </select>
+</div>

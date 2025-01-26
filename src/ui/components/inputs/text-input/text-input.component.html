@@ -1,0 +1,13 @@
+<div class="container">
+  @if (label) {
+  <label [htmlFor]="inputProps.id || inputProps.name" class="container__label">{{ label }}</label>
+  }
+  <input
+    class="container__input"
+    [type]="inputProps.type || 'text'"
+    [disabled]="inputProps.disabled || false"
+    [placeholder]="inputProps.placeholder"
+    [name]="inputProps.name || ''"
+    [id]="inputProps.id || inputProps.name"
+  />
+</div>
