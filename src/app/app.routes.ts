@@ -4,11 +4,12 @@ import { MembersPage } from './pages/members/members.component';
 import { MinisterysPage } from './pages/ministerys/ministerys.component';
 import { NewMinisteryPage } from './pages/ministerys/new/new.component';
 import { NewMemberPage } from './pages/members/new/new.component';
+import { DayScaleMinisteryComponent } from './pages/day-scale-ministery/day-scale-ministery.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: HomePage
+    component: DayScaleMinisteryComponent
   },
   {
     path: 'members',
