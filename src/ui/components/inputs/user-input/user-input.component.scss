@@ -1,0 +1,35 @@
+@use '../../../styles/colors' as colors;
+@use '../../../styles/mixins' as mixins;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  &__label {
+    font-weight: 500;
+    color: colors.$gray-12;
+    font-size: 14px;
+  }
+
+  &__input {
+    @include mixins.vertical-align;
+    @include mixins.card-base-style;
+
+    padding: 12px;
+    border-radius: 12px;
+    gap: 8px;
+
+    > img {
+      aspect-ratio: 1/1.05;
+      width: 20%;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    > p {
+      color: colors.$gray-11;
+      font-size: 14px;
+    }
+  }
+}
