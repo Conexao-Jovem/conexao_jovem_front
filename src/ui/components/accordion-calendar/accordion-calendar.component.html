@@ -1,0 +1,19 @@
+<main
+(click)="toggleActive()" class="containerAcordion">
+  <div class="card-accordion">
+    <div class="card-accordion-header">
+    <div class="accordion-title">
+      <span></span> <h4>Sábado {{date}}</h4> 
+    </div>
+    <span class="icon" [style.transform]="isActive ? 'rotate(270deg)' : ' rotate(0deg)'"> <lucide-angular  size="20" [img]="DropdownIcon"></lucide-angular></span>
+  </div>
+  </div>
+  <div  [style.display]="isActive ? 'block' : 'none'"  class="card-accordion-content">
+    <app-ministerys-card-accordion ministery="Equipe de Louvor" amount="4 pessoas" status="check" ></app-ministerys-card-accordion>
+    <app-ministerys-card-accordion ministery="Sonoplastia" amount="4 pessoas" status="pending"></app-ministerys-card-accordion>
+    <app-ministerys-card-accordion ministery="Dinâmica" amount="1 pessoa" status="check"></app-ministerys-card-accordion>
+   <div class="accordion-status">
+    <app-status-label [status]="'CONFIRMADO'"></app-status-label>
+   </div>
+  </div>
+</main>
