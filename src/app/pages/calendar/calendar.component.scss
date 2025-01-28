@@ -1,4 +1,10 @@
 @use '../../../ui/styles/mixins' as mixins;
+
+.container {
+  padding: 24px 16px 68px 16px;
+  position: relative;
+}
+
 .flex {
   display: flex;
   gap: 0.5rem;

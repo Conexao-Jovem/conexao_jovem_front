@@ -2,12 +2,9 @@ import { Routes } from '@angular/router';
 import { HomePage } from './pages/home/home.component';
 import { MembersPage } from './pages/members/members.component';
 import { MinisterysPage } from './pages/ministerys/ministerys.component';
-<<<<<<< HEAD
 import { CalendarComponent } from './pages/calendar/calendar.component';
-=======
-import { NewMinisteryPage } from './pages/ministerys/new/new.component';
 import { NewMemberPage } from './pages/members/new/new.component';
->>>>>>> aaa870def5123288a0162e335b3b2e78f6860e9c
+import { NewMinisteryPage } from './pages/ministerys/new/new.component';
 
 export const routes: Routes = [
   {
