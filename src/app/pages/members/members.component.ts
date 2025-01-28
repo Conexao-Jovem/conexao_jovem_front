@@ -6,6 +6,8 @@ import { Filter, LucideAngularModule } from 'lucide-angular';
 import { User } from '../../../data/services/user/@types/find.dto';
 import { UserService } from '../../../data/services/user/user.service';
 import { RouterModule } from '@angular/router';
+import { FilterCardService } from '../../../ui/components/filter-card/filter-card.service';
+import { Filter as FilterArray, FilterType } from '../../../ui/components/filter-card/@types';
 
 @Component({
   selector: 'app-members',
@@ -17,7 +19,12 @@ export class MembersPage implements OnInit {
   members: User[] = [];
   readonly FilterIcon = Filter;
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService, private filterService: FilterCardService) {}
+
+  filters: FilterArray[] = [
+    { label: 'Nome', key: 'name', type: FilterType.SEARCH },
+    { label: 'Categoria', key: 'category', type: FilterType.SELECT, options: ['Tech', 'Finance', 'Health'] }
+  ];
 
   ngOnInit(): void {
     this.userService.find().subscribe({
@@ -28,5 +35,10 @@ export class MembersPage implements OnInit {
         console.error(error);
       }
     });
+  }
+
+  toggleCard() {
+    this.filterService.toggleCard();
+    this.filterService.setFilters(this.filters);
   }
 }

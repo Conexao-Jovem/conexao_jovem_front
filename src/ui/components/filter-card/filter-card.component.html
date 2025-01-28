@@ -1,0 +1,19 @@
+@if (isOpen) {
+<div (click)="toggleCard()" class="overlay"></div>
+}
+<article [ngClass]="{ open: isOpen, closed: !isOpen }" class="card">
+  <header class="card__header">
+    <i-lucide [img]="ChevronLeft"></i-lucide>
+    <p>Filtros</p>
+    <button>Limpar</button>
+  </header>
+  <ul class="card__list">
+    @for (filter of filters; track $index) {
+    <li>
+      <p>{{ filter.label }}</p>
+      <i-lucide size="20" [img]="ChevronRight"></i-lucide>
+    </li>
+    }
+  </ul>
+  <app-button [customStyle]="{ width: '100%' }" [roundedFull]="true" [variant]="'contained'" [color]="'primary'" [type]="'submit'">Buscar</app-button>
+</article>
