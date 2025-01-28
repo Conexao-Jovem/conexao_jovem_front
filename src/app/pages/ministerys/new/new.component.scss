@@ -1,4 +1,11 @@
 .container {
   padding: 24px 16px 96px 16px;
   position: relative;
+
+  &__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    height: 100%;
+  }
 }
