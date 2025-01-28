@@ -1,6 +1,8 @@
 <main class="container">
   <app-title [subTitle]="'Preencha as informações abaixo'" title="Novo Ministério" />
   <form class="container__form">
-    <app-text-input [label]="'Título'" [inputProps]="titleInputProps"></app-text-input>
+    <app-file-input />
+    <app-text-input [label]="'Título'" [inputProps]="titleInputProps" />
+    <app-user-input [label]="'Responsável'" />
   </form>
 </main>
