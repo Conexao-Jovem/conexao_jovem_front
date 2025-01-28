@@ -10,10 +10,12 @@
   color: colors.$gray-10;
   border: 1px solid colors.$gray-5;
   border-radius: 37px;
+  
+  &.active {
+    background-color: colors.$purple-a9;
+    color: white;
+  }
 }
 
-.color{
-  background-color: colors.$purple-a9;
-  color: white;
-}
+ 
 

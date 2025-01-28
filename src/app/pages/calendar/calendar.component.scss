@@ -1,4 +1,5 @@
 @use '../../../ui/styles/mixins' as mixins;
+@use '../../../ui/styles/colors' as colors;
 
 .container {
   padding: 24px 16px 68px 16px;
@@ -11,11 +12,18 @@
 }
 
 .flex-content {
-  @include mixins.vertical-align;
-  justify-content: center;
+  
+
   gap: 1rem;
+  width: 100%;
+  flex-direction: column;
+  margin-top: 6px;
+
 }
 
-.flex-content > * {
-  flex: 1;
+.active {
+  background-color: colors.$purple-a9;
+  color: white;
 }
+
+

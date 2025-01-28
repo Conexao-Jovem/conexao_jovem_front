@@ -8,4 +8,7 @@ import { Component, Input } from '@angular/core';
 })
 export class ToggleComponent {
   @Input() title: string = '';
+  @Input() isActive: boolean = false;
 }
+
+
