@@ -1,0 +1,13 @@
+<main class="container">
+  <app-title [subTitle]="'Preencha as informações abaixo'" title="Novo Membro" />
+  <form class="container__form">
+    <app-file-input />
+    <app-text-input [inputProps]="emailInput" [label]="'E-mail'" />
+    <app-text-input [inputProps]="nameInput" [label]="'Nome'" />
+    <app-text-input [inputProps]="lastnameInput" [label]="'Sobrenome'" />
+    <app-select-input [inputProps]="departmentInput" [Options]="departmentOptions" [label]="'Departamento'" />
+    <app-button [customStyle]="{ width: '100%' }" [roundedFull]="true" [variant]="'contained'" [color]="'primary'" [type]="'submit'"
+      >Enviar</app-button
+    >
+  </form>
+</main>

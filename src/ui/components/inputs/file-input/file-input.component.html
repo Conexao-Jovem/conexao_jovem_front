@@ -1,0 +1,28 @@
+<div class="container">
+  <input type="file" #fileInput hidden (change)="onFileSelected($event)" accept="image/png, image/jpeg, image/jpg" />
+
+  <div [ngClass]="{ 'border--dashed': previewUrl }" class="circle-upload" (click)="triggerFileInput(fileInput)">
+    <div class="content-wrapper">
+      @if (previewUrl) {
+      <img [src]="previewUrl" alt="Preview" class="preview-image" />
+      <i class="editIcon">
+        <i-lucide [img]="EditIcon"></i-lucide>
+      </i>
+      } @else {
+      <i-lucide [img]="UploadIcon"></i-lucide>
+      }
+
+      <ng-template #uploadIcon>
+        <div class="upload-icon">
+          <i-lucide [img]="UploadIcon"></i-lucide>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+
+  @if (errorMessage) {
+  <div class="error-message">
+    {{ errorMessage }}
+  </div>
+  }
+</div>

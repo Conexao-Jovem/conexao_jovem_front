@@ -30,10 +30,10 @@ export class Scale {
   pid!: string;
 
   /**
-   * Lista de membros associados à escala.
-   * @type {User[]}
+   * Lista de ids dos membros associados à escala.
+   * @type {string[]}
    */
-  members!: User[];
+  membersId!: string[];
 
   /**
    * Status atual da escala.

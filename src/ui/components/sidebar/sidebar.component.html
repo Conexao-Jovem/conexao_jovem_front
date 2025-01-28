@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div>
   <img  alt="Imagem do grupo: Equipe de Louvor" src="https://github.com/Conexao-Jovem.png">
   <div>
@@ -10,3 +11,57 @@
     logout e settings
   </div>
 </div>
+=======
+@if (isOpen) {
+<div (click)="toggleSidebar()" class="overlay"></div>
+}
+<aside [ngClass]="{ open: isOpen, closed: !isOpen }" class="sidebar">
+  <header class="sidebar__header">
+    <img src="logo.png" />
+    <div class="sidebar__department">
+      <i class="sidebar__department__icon">
+        <lucide-angular size="32" [name]="Options[0].icon"></lucide-angular>
+      </i>
+      <div>
+        <p>Sonoplastia</p>
+        <p>André Almeida</p>
+      </div>
+    </div>
+  </header>
+  <nav class="sidebar__nav">
+    <ul class="options">
+      @for (option of Options; track $index) {
+      <li class="option">
+        <a
+          (click)="toggleSidebar()"
+          [routerLink]="option.path"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          aria-current="page"
+        >
+          <lucide-angular [name]="option.icon"></lucide-angular>
+          <p>{{ option.label }}</p>
+        </a>
+      </li>
+      }
+    </ul>
+    <ul class="options">
+      @for (option of CommonOptions; track $index) {
+      <li class="option">
+        <a
+          (click)="toggleSidebar()"
+          class="{{ option.customClass }}"
+          [routerLink]="option.path"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          aria-current="page"
+        >
+          <lucide-angular [name]="option.icon"></lucide-angular>
+          <p>{{ option.label }}</p>
+        </a>
+      </li>
+      }
+    </ul>
+  </nav>
+</aside>
+>>>>>>> aaa870def5123288a0162e335b3b2e78f6860e9c

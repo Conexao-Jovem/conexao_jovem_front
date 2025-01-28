@@ -1,4 +1,4 @@
-<button [disabled]="disabled" [attr.data-rounded]="roundedFull" [class]="buttonClasses" (click)="handleClick($event)">
+<button [style]="customStyle" [disabled]="disabled" [attr.data-rounded]="roundedFull" [class]="buttonClasses" (click)="handleClick($event)">
   <ng-content></ng-content>
   @for (ripple of ripples; track ripple.id) {
   <span class="ripple" [style.left.px]="ripple.x" [style.top.px]="ripple.y" (animationend)="handleAnimationEnd(ripple.id)"></span>

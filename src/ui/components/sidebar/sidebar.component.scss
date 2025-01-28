@@ -1,0 +1,101 @@
+@use '../../styles/colors' as colors;
+@use '../../styles/mixins' as mixins;
+
+.sidebar {
+  background-color: #fff;
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  bottom: 0;
+  padding: 12px 24px;
+  display: flex;
+  flex-direction: column;
+  min-width: 220px;
+  transition: transform 0.3s ease-in-out;
+
+  &__header {
+    border-bottom: 1px solid colors.$gray-4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+
+    > img {
+      width: 60%;
+      max-width: 110px;
+    }
+  }
+
+  &__department {
+    background-color: #fff;
+    box-shadow: 0 1px 4px 0 rgba($color: #000000, $alpha: 0.1);
+    border-radius: 8px;
+    padding: 8px;
+    @include mixins.vertical-align;
+    gap: 8px;
+    width: 100%;
+
+    &__icon {
+      background-color: orange;
+      color: #fff;
+      border-radius: 8px;
+      padding: 6px;
+      aspect-ratio: 1;
+      width: 36px;
+      @include mixins.vertical-align;
+      justify-content: center;
+    }
+
+    > div p {
+      &:first-child {
+        color: colors.$gray-12;
+        font-weight: 500;
+        margin-bottom: 4px;
+        font-size: 16px;
+      }
+
+      color: colors.$gray-11;
+      font-size: 12px;
+    }
+  }
+
+  &__nav {
+    padding: 12px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex: 1;
+  }
+}
+
+.options {
+}
+
+.option a {
+  @include mixins.vertical-align;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 6px;
+  color: colors.$gray-11;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.active {
+  background-color: colors.$purple-2;
+  color: colors.$purple-9 !important;
+  font-weight: 500;
+}
+
+.logout {
+  color: #ff3b30 !important;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar.closed {
+  transform: translateX(-100%);
+}

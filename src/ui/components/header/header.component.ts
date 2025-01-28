@@ -1,6 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { Bell,  LucideAngularModule } from 'lucide-angular';
 import { MenuIconComponent } from '../../icons/menu-icon/menu-icon.component';
+import { SidebarService } from '../sidebar/sidebar.service';
 
 
 @Component({
@@ -13,6 +14,12 @@ export class HeaderComponent {
   readonly BellIcon = Bell;
   
   isSticky = false;
+
+  constructor(private sidebarService: SidebarService) {}
+
+  toggleSidebar() {
+    this.sidebarService.toggleSidebar();
+  }
 
   @HostListener('window:scroll', ['$event'])
   onWindowScroll() {

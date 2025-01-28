@@ -1,0 +1,97 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 1rem;
+}
+
+.circle-upload {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px dashed #ccc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.circle-upload:hover {
+  border-color: #2196f3;
+  background-color: rgba(33, 150, 243, 0.1);
+}
+
+.content-wrapper {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.upload-icon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: #666;
+}
+
+.instruction-text {
+  font-size: 0.9rem;
+  text-align: center;
+  padding: 0 1rem;
+}
+
+.error-message {
+  color: #ff4444;
+  font-size: 0.8rem;
+  margin-top: 10px;
+  text-align: center;
+  max-width: 200px;
+}
+
+.editIcon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: #fff;
+  background-color: rgba($color: #000000, $alpha: 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Mobile Optimization */
+@media (max-width: 480px) {
+  .circle-upload {
+    width: 120px;
+    height: 120px;
+  }
+
+  .instruction-text {
+    font-size: 0.8rem;
+  }
+
+  .upload-icon svg {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+.border--dashed {
+  border-color: transparent !important;
+}
