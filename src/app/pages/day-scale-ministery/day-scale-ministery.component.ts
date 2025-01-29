@@ -8,6 +8,6 @@ import { UserCardComponent } from "../../../ui/components/user-card/user-card.co
   templateUrl: './day-scale-ministery.component.html',
   styleUrl: './day-scale-ministery.component.scss'
 })
-export class DayScaleMinisteryComponent {
+export class DayScaleMinisteryPage {
 
 }

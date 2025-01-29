@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DayScaleMinisteryPage } from './day-scale-ministery.component';
+import { LoginPage } from './login.component';
 
-describe('DayScaleMinisteryPage', () => {
-  let component: DayScaleMinisteryPage;
-  let fixture: ComponentFixture<DayScaleMinisteryPage>;
+describe('LoginPage', () => {
+  let component: LoginPage;
+  let fixture: ComponentFixture<LoginPage>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DayScaleMinisteryPage]
+      imports: [LoginPage]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(DayScaleMinisteryPage);
+    fixture = TestBed.createComponent(LoginPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -5,11 +5,12 @@ import { MinisterysPage } from './pages/ministerys/ministerys.component';
 import { CalendarComponent } from './pages/calendar/calendar.component';
 import { NewMemberPage } from './pages/members/new/new.component';
 import { NewMinisteryPage } from './pages/ministerys/new/new.component';
+import { LoginPage } from './pages/login/login.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: HomePage
+    component: LoginPage
   },
   {
     path: 'calendar',
