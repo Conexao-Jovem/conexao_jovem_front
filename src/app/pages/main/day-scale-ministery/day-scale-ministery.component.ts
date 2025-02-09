@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { TitleComponent } from '../../../ui/components/title/title.component';
-import { UserCardComponent } from "../../../ui/components/user-card/user-card.component";
+import { TitleComponent } from '../../../../ui/components/title/title.component';
+import { UserCardComponent } from "../../../../ui/components/user-card/user-card.component";
 
 @Component({
   selector: 'app-day-scale-ministery',
@@ -9,5 +9,5 @@ import { UserCardComponent } from "../../../ui/components/user-card/user-card.co
   styleUrl: './day-scale-ministery.component.scss'
 })
 export class DayScaleMinisteryPage {
-
+  protected date = new Date()
 }

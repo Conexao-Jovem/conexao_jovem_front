@@ -72,7 +72,8 @@
     border-radius: 0 6px 6px 0;
     z-index: 2;
     display: flex;
-    align-items: end;
+    align-items: flex-end;
+    justify-content: space-between;
 
     &::before {
       content: '';
@@ -103,29 +104,15 @@
       }
     }
 
-    
+    .price >p{
+      font-size: 16px !important;
+      font-weight: 600 !important;
 
-  }
-
-  .price{
-   & p {
-    &:first-child{
-      font-weight: 400;
-      font-size: 8px;
-      display: flex;
-      justify-content: center;
-      align-items: end;
+      >span{
+        font-size: 10px;
+        font-weight: 400;
+      }
     }
-   
-   }
-    &  p > span {
-      display: flex;
-      align-items: end;
-      color: colors.$gray-1;
-      font-weight: 700;
-      font-size: 16px;
-    }
-
   }
 }
 

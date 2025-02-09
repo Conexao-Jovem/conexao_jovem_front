@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { TitleComponent } from '../../../ui/components/title/title.component';
-import { EventCardComponent } from '../../../ui/components/event-card/event-card.component';
-import { MinisteryCardComponent } from '../../../ui/components/ministery-card/ministery-card.component';
+import { TitleComponent } from '../../../../ui/components/title/title.component';
+import { EventCardComponent } from '../../../../ui/components/event-card/event-card.component';
+import { MinisteryCardComponent } from '../../../../ui/components/ministery-card/ministery-card.component';
 
 @Component({
   selector: 'app-home',

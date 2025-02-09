@@ -11,8 +11,10 @@
     <p>{{ title }}</p>
     <p>{{ description }}</p>
   </div>
-    <div class="price">
-      <p>R$ <span>{{ price }}</span></p>
-    </div>
+    @if (currencyPrice) {
+      <div class="price">
+        <p><span>R$</span>{{ currencyPrice }}</p>
+      </div>
+    }
   </footer>
 </article>

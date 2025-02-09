@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { TitleComponent } from '../../../../ui/components/title/title.component';
-import { TextInputComponent } from '../../../../ui/components/inputs/text-input/text-input.component';
-import { SelectInputComponent } from '../../../../ui/components/inputs/select-input/select-input.component';
-import { FileInputComponent } from '../../../../ui/components/inputs/file-input/file-input.component';
-import { ButtonComponent } from '../../../../ui/components/button/button.component';
+import { TitleComponent } from '../../../../../ui/components/title/title.component';
+import { TextInputComponent } from '../../../../../ui/components/inputs/text-input/text-input.component';
+import { SelectInputComponent } from '../../../../../ui/components/inputs/select-input/select-input.component';
+import { FileInputComponent } from '../../../../../ui/components/inputs/file-input/file-input.component';
+import { ButtonComponent } from '../../../../../ui/components/button/button.component';
 
 @Component({
   selector: 'app-new',

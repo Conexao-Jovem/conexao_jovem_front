@@ -1,13 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { TitleComponent } from '../../../ui/components/title/title.component';
-import { ButtonComponent } from '../../../ui/components/button/button.component';
-import { UserCardComponent } from '../../../ui/components/user-card/user-card.component';
+import { TitleComponent } from '../../../../ui/components/title/title.component';
+import { ButtonComponent } from '../../../../ui/components/button/button.component';
+import { UserCardComponent } from '../../../../ui/components/user-card/user-card.component';
 import { Filter, LucideAngularModule } from 'lucide-angular';
-import { User } from '../../../data/services/user/@types/find.dto';
-import { UserService } from '../../../data/services/user/user.service';
+import { User } from '../../../../data/services/user/@types/find.dto';
+import { UserService } from '../../../../data/services/user/user.service';
 import { RouterModule } from '@angular/router';
-import { FilterCardService } from '../../../ui/components/filter-card/filter-card.service';
-import { Filter as FilterArray, FilterType } from '../../../ui/components/filter-card/@types';
+import { FilterCardService } from '../../../../ui/components/filter-card/filter-card.service';
+import { Filter as FilterArray, FilterType } from '../../../../ui/components/filter-card/@types';
 
 @Component({
   selector: 'app-members',

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
-import { TitleComponent } from "../../../ui/components/title/title.component";
-import { ToggleComponent } from "../../../ui/components/toggle/toggle.component";
-import { AccordionCalendarComponent } from "../../../ui/components/accordion-calendar/accordion-calendar.component";
-import { EventCardComponent } from "../../../ui/components/event-card/event-card.component";
+import { TitleComponent } from "../../../../ui/components/title/title.component";
+import { ToggleComponent } from "../../../../ui/components/toggle/toggle.component";
+import { AccordionCalendarComponent } from "../../../../ui/components/accordion-calendar/accordion-calendar.component";
+import { EventCardComponent } from "../../../../ui/components/event-card/event-card.component";
 
 @Component({
   selector: 'app-calendar',

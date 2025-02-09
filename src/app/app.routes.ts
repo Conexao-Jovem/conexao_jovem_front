@@ -1,11 +1,12 @@
 import { Routes } from '@angular/router';
-import { HomePage } from './pages/home/home.component';
-import { MembersPage } from './pages/members/members.component';
-import { MinisterysPage } from './pages/ministerys/ministerys.component';
-import { CalendarComponent } from './pages/calendar/calendar.component';
-import { NewMemberPage } from './pages/members/new/new.component';
-import { NewMinisteryPage } from './pages/ministerys/new/new.component';
+import { MinisterysPage } from './pages/main/ministerys/ministerys.component';
+import { CalendarComponent } from './pages/main/calendar/calendar.component';
+import { NewMinisteryPage } from './pages/main/ministerys/new/new.component';
 import { LoginPage } from './pages/login/login.component';
+import { MembersPage } from './pages/main/members/members.component';
+import { NewMemberPage } from './pages/main/members/new/new.component';
+import { MainTemplateComponent } from './templates/main/main.component';
+import { HomePage } from './pages/main/home/home.component';
 
 export const routes: Routes = [
   {
@@ -13,23 +14,33 @@ export const routes: Routes = [
     component: LoginPage
   },
   {
-    path: 'calendar',
-    component: CalendarComponent
+    path: 'main',
+    component: MainTemplateComponent,
+    children: [
+      {
+        path: '',
+        component: HomePage
+      },
+      {
+        path: 'calendar',
+        component: CalendarComponent
+      },
+      {
+        path: 'members',
+        component: MembersPage
+      },
+      {
+        path: 'members/new',
+        component: NewMemberPage
+      },
+      {
+        path: 'ministerys',
+        component: MinisterysPage
+      },
+      {
+        path: 'ministerys/new',
+        component: NewMinisteryPage
+      }
+    ]
   },
-  {
-    path: 'members',
-    component: MembersPage
-  },
-  {
-    path: 'members/new',
-    component: NewMemberPage
-  },
-  {
-    path: 'ministerys',
-    component: MinisterysPage
-  },
-  {
-    path: 'ministerys/new',
-    component: NewMinisteryPage
-  }
 ];

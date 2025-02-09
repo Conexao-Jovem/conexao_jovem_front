@@ -1,10 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { TitleComponent } from '../../../ui/components/title/title.component';
-import { ButtonComponent } from '../../../ui/components/button/button.component';
+import { TitleComponent } from '../../../../ui/components/title/title.component';
+import { ButtonComponent } from '../../../../ui/components/button/button.component';
 import { Filter, LucideAngularModule } from 'lucide-angular';
-import { MinisteryCardComponent } from '../../../ui/components/ministery-card/ministery-card.component';
-import { MinisteryService } from '../../../data/services/ministery/ministery.service';
-import { Ministery } from '../../../data/services/ministery/@types/find.dto';
+import { MinisteryCardComponent } from '../../../../ui/components/ministery-card/ministery-card.component';
+import { MinisteryService } from '../../../../data/services/ministery/ministery.service';
+import { Ministery } from '../../../../data/services/ministery/@types/find.dto';
 import { RouterModule } from '@angular/router';
 
 @Component({

@@ -1,0 +1,25 @@
+<main class="container">
+<app-title title="Sábado, 25/01" subTitle="Sonoplastia "></app-title>
+<div>
+  <h3 class="title">Membros na escala </h3>
+  <ul>
+    <li>
+      <app-user-card [lastParticipation]="date" [selectToScaleMode]="true" [imgUrl]="'https://github.com/Conexao-Jovem.png'" [ministeryId]="3" [name]="'Marcos'"></app-user-card>
+    </li>
+  </ul>
+</div>
+<section class="section">
+  <hgroup>
+    <h3>Membros pra adicionar </h3>
+    <h4>Clique para adicionar</h4>
+  </hgroup>
+  <ul>
+    <li><app-user-card [imgUrl]="'https://github.com/Conexao-Jovem.png'" [ministeryId]="3" [name]="'Marcos'"></app-user-card>
+    </li>
+    <li><app-user-card [imgUrl]="'https://github.com/Conexao-Jovem.png'" [ministeryId]="3" [name]="'Marcos'"></app-user-card>
+    </li>
+    <li><app-user-card [imgUrl]="'https://github.com/Conexao-Jovem.png'" [ministeryId]="3" [name]="'Marcos'"></app-user-card>
+    </li>
+  </ul>
+</section>
+</main>
