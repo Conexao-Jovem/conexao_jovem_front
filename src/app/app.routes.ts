@@ -7,11 +7,17 @@ import { MembersPage } from './pages/main/members/members.component';
 import { NewMemberPage } from './pages/main/members/new/new.component';
 import { MainTemplateComponent } from './templates/main/main.component';
 import { HomePage } from './pages/main/home/home.component';
+import { EventPage } from './pages/main/event/event-page.component';
 
 export const routes: Routes = [
   {
-    path: '',
+    path: 'login',
     component: LoginPage
+  },
+  {
+    path: '',
+    redirectTo: 'main',
+    pathMatch: 'full'
   },
   {
     path: 'main',
@@ -43,4 +49,8 @@ export const routes: Routes = [
       }
     ]
   },
+  {
+    path: 'main/event/:id',
+    component: EventPage
+  }
 ];

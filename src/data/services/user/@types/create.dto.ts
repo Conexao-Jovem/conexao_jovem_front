@@ -1,11 +1,5 @@
 export class CreateUserDto {
   /**
-   * Identificador único do usuário.
-   * @type {number}
-   */
-  id!: number;
-
-  /**
    * Nome completo do usuário.
    * @type {string}
    */
@@ -22,12 +16,6 @@ export class CreateUserDto {
    * @type {number}
    */
   ministeryID?: number;
-
-  /**
-   * Identificador público do usuário (pode ser usado para fins de SEO ou URLs).
-   * @type {string}
-   */
-  pid!: string;
 
   /**
    * Senha do usuário (armazenada de forma segura, como hash).

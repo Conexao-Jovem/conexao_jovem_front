@@ -2,32 +2,33 @@
 @use '../../../ui/styles/colors' as colors;
 
 .container {
-  padding: 64px 16px 24px 16px;
   position: relative;
-  max-height: 100vh;
-  height: 100vh;
-
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: colors.$purple-1;
+  height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+  padding: 0 16px;
 
-  >img{
+  > img {
     height: 78px;
+    margin-top: 64px;
   }
 }
 
-.form{
+.form {
   width: 100%;
-  padding: 32px 0 16px 0;
+  padding: 32px 16px 16px 16px;
 
-  &__inputs{
+  &__inputs {
     display: flex;
     flex-direction: column;
     gap: 16px;
   }
 
-  &__forgetPW{
+  &__forgetPW {
     display: flex;
     justify-content: flex-end;
     color: colors.$purple-9;
@@ -36,49 +37,48 @@
     cursor: pointer;
     margin: 12px 0 24px 0;
   }
-
-  
-
 }
 
-.orText{
+.orText {
   width: 100%;
   @include mixins.vertical-align;
   gap: 16px;
   margin-bottom: 24px;
 
-  >div{
+  > div {
     flex: 1;
     height: 1px;
     background-color: colors.$gray-5;
   }
 
-  >p{
+  > p {
     font-size: 12px;
     color: colors.$gray-9;
   }
 }
 
-.socialMediaButton{
+.socialMediaButton {
   width: 100%;
 
   display: flex;
   flex-direction: column;
   gap: 8px;
 
-  >button{
+  > button {
     color: colors.$gray-12;
     font-weight: 400 !important;
   }
 }
 
-.footer{
+.footer {
   font-size: 12px;
   color: colors.$gray-12;
   position: absolute;
-  bottom: 16px;
+  bottom: 24px;
+  width: 100%;
+  text-align: center;
 
-  &__link{
+  &__link {
     color: colors.$purple-9;
     text-decoration: underline;
   }

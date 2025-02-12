@@ -2,7 +2,15 @@
   @if (label) {
   <label class="container__label" [htmlFor]="inputProps.id || inputProps.name">{{ label }}</label>
   }
-  <select class="container__select" [name]="inputProps.name" [ariaPlaceholder]="inputProps.ariaPlaceholder">
+  <select
+    class="container__select"
+    [ariaPlaceholder]="inputProps.ariaPlaceholder"
+    [name]="inputProps.name || ''"
+    [id]="inputProps.id || inputProps.name"
+    [disabled]="inputProps.disabled || false"
+    [value]="inputProps.value"
+    (change)="onValueChange($event)"
+  >
     @for (option of Options; track $index) {
     <option [value]="option.value" [label]="option.label">
       {{ option.label }}

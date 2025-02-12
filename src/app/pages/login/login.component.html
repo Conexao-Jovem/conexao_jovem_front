@@ -1,31 +1,31 @@
 <main class="container">
-    <img src="logo.png" alt="Conexão jovem ">
-    <form class="form">
-        <div class="form__inputs">
-            <app-text-input [inputProps]="emailInput" [label]="'E-mail'" />
-            <app-text-input [inputProps]="senhaInput" [label]="'Senha'" />
-        </div>
-        <div class="form__forgetPW">
-            <a>Esqueci minha senha</a>
-        </div>
-        <app-button [type]="'button'" [customStyle]="{width: '100%'}" [color]="'primary'" [variant]="'contained'" >Entrar</app-button>
-    </form>
-    <div class="orText">
-        <div></div>
-        <p>Ou</p>
-        <div></div>
+  <img src="logo.png" alt="Conexão jovem " />
+  <form class="form">
+    <div class="form__inputs">
+      <app-text-input [inputProps]="emailInput" [label]="'E-mail'" />
+      <app-text-input [inputProps]="senhaInput" [label]="'Senha'" />
     </div>
-    <div class="socialMediaButton">
-        <app-button [customStyle]="{width: '100%', boxShadow: 'none', border: '1px solid #F2F2F4', fontWeight: '500'}" [roundedFull]="true">
-            <app-google-icon [width]="18" height="18" />
-            Entre com Google
-        </app-button>
-        <app-button [customStyle]="{width: '100%', boxShadow: 'none', border: '1px solid #F2F2F4', fontWeight: '500'}" [roundedFull]="true">
-            <app-facebook-icon [width]="18" height="18" />
-            Entre com Facebook
-        </app-button>
+    <div class="form__forgetPW">
+      <a>Esqueci minha senha</a>
     </div>
-    <footer class="footer">
-        <p>Não tem uma conta ? <a class="footer__link">Cadastre-se aqui</a></p>
-    </footer>
+    <app-button [type]="'button'" [customStyle]="{ width: '100%' }" [color]="'primary'" [variant]="'contained'">Entrar</app-button>
+  </form>
+  <div class="orText">
+    <div></div>
+    <p>Ou</p>
+    <div></div>
+  </div>
+  <div class="socialMediaButton">
+    <app-button [customStyle]="{ width: '100%', boxShadow: 'none', border: '1px solid #F2F2F4', fontWeight: '500' }" [roundedFull]="true">
+      <app-google-icon [width]="18" height="18" />
+      Entre com Google
+    </app-button>
+    <app-button [customStyle]="{ width: '100%', boxShadow: 'none', border: '1px solid #F2F2F4', fontWeight: '500' }" [roundedFull]="true">
+      <app-facebook-icon [width]="18" height="18" />
+      Entre com Facebook
+    </app-button>
+  </div>
+  <footer class="footer">
+    <p>Não tem uma conta ? <a class="footer__link">Cadastre-se aqui</a></p>
+  </footer>
 </main>

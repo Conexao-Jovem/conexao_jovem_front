@@ -4,10 +4,10 @@ import { ButtonComponent } from '../../../../ui/components/button/button.compone
 import { UserCardComponent } from '../../../../ui/components/user-card/user-card.component';
 import { Filter, LucideAngularModule } from 'lucide-angular';
 import { User } from '../../../../data/services/user/@types/find.dto';
-import { UserService } from '../../../../data/services/user/user.service';
 import { RouterModule } from '@angular/router';
 import { FilterCardService } from '../../../../ui/components/filter-card/filter-card.service';
 import { Filter as FilterArray, FilterType } from '../../../../ui/components/filter-card/@types';
+import { UserService } from '../../../../data/services/firebaseServices/user/user.service';
 
 @Component({
   selector: 'app-members',
@@ -19,7 +19,7 @@ export class MembersPage implements OnInit {
   members: User[] = [];
   readonly FilterIcon = Filter;
 
-  constructor(private userService: UserService, private filterService: FilterCardService) {}
+  constructor(private filterService: FilterCardService, private userService: UserService) {}
 
   filters: FilterArray[] = [
     { label: 'Nome', key: 'name', type: FilterType.SEARCH },
@@ -27,14 +27,13 @@ export class MembersPage implements OnInit {
   ];
 
   ngOnInit(): void {
-    this.userService.find().subscribe({
-      next: response => {
-        this.members = response.data;
-      },
-      error: error => {
-        console.error(error);
-      }
-    });
+    this.loadUsers();
+  }
+
+  async loadUsers() {
+    const allMembers = await this.userService.findAll();
+    this.members = allMembers;
+    console.log(allMembers);
   }
 
   toggleCard() {

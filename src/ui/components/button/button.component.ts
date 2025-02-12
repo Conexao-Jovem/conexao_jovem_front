@@ -9,9 +9,10 @@ import { Ripple } from './@types/ripple';
 })
 export class ButtonComponent {
   @Input() disabled: boolean = false;
-  @Input() color: 'primary' | 'submit' | 'cancel' | 'none' = 'none';
+  @Input() color: 'primary' | 'submit' | 'cancel' | 'none' | 'neutral' = 'none';
   @Input() variant?: 'contained' | 'icon';
   @Input() roundedFull?: boolean;
+  @Input() roundedFullSquared?: boolean;
   @Input() withIcon?: boolean;
   @Input() type: HTMLButtonElement['type'] = 'button';
   @Output() btnClick = new EventEmitter<MouseEvent>();
@@ -45,7 +46,8 @@ export class ButtonComponent {
     const withIconClass = this.withIcon ? 'button--withIcon' : '';
     const variantClass = this.variant ? `button--${this.color}--${this.variant}` : `button--${this.color}`;
     const disabledClass = this.disabled ? 'button--disabled' : '';
+    const rounded = this.roundedFullSquared ? 'rounded' : '';
 
-    return `${baseClass} ${variantClass} ${disabledClass} ${withIconClass}`;
+    return `${baseClass} ${variantClass} ${disabledClass} ${withIconClass} ${rounded}`;
   }
 }

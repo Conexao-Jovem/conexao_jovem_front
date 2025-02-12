@@ -9,5 +9,7 @@
     [placeholder]="inputProps.placeholder"
     [name]="inputProps.name || ''"
     [id]="inputProps.id || inputProps.name"
+    [(ngModel)]="value"
+    (ngModelChange)="onInputChange($event)"
   />
 </div>

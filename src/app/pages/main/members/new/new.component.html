@@ -1,11 +1,11 @@
 <main class="container">
   <app-title [subTitle]="'Preencha as informações abaixo'" title="Novo Membro" />
-  <form class="container__form">
-    <app-file-input />
-    <app-text-input [inputProps]="emailInput" [label]="'E-mail'" />
-    <app-text-input [inputProps]="nameInput" [label]="'Nome'" />
-    <app-text-input [inputProps]="lastnameInput" [label]="'Sobrenome'" />
-    <app-select-input [inputProps]="departmentInput" [Options]="departmentOptions" [label]="'Departamento'" />
+  <form [formGroup]="form" class="container__form" (ngSubmit)="onSubmit()">
+    <app-file-input formControlName="image" />
+    <app-text-input formControlName="email" [inputProps]="emailInput" [label]="'E-mail'" />
+    <app-text-input formControlName="name" [inputProps]="nameInput" [label]="'Nome'" />
+    <app-text-input formControlName="lastname" [inputProps]="lastnameInput" [label]="'Sobrenome'" />
+    <app-select-input formControlName="department" [inputProps]="departmentInput" [Options]="departmentOptions" [label]="'Departamento'" />
     <app-button [customStyle]="{ width: '100%' }" [roundedFull]="true" [variant]="'contained'" [color]="'primary'" [type]="'submit'"
       >Enviar</app-button
     >

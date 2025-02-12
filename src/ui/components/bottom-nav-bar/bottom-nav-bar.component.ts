@@ -12,19 +12,19 @@ export class BottomNavBarComponent {
   readonly Icons = [
     {
       icon: House,
-      path: '/'
+      path: ''
     },
     {
       icon: Calendar,
-      path: '/calendar'
+      path: 'calendar'
     },
     {
       icon: UsersRound,
-      path: '/members'
+      path: 'members'
     },
     {
       icon: SquareUserRound,
-      path: '/profile'
+      path: 'profile'
     }
   ];
 }

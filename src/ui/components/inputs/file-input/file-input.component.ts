@@ -1,14 +1,22 @@
-import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, forwardRef, Output } from '@angular/core';
+import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { Edit, LucideAngularModule, Upload } from 'lucide-angular';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-file-input',
   imports: [LucideAngularModule, CommonModule],
   templateUrl: './file-input.component.html',
-  styleUrl: './file-input.component.scss'
+  styleUrls: ['./file-input.component.scss'],
+  providers: [
+    {
+      provide: NG_VALUE_ACCESSOR,
+      useExisting: forwardRef(() => FileInputComponent),
+      multi: true
+    }
+  ]
 })
-export class FileInputComponent {
+export class FileInputComponent implements ControlValueAccessor {
   readonly EditIcon = Edit;
   readonly UploadIcon = Upload;
 
@@ -18,6 +26,24 @@ export class FileInputComponent {
 
   allowedTypes = ['image/png', 'image/jpeg', 'image/jpg'];
   maxSizeMB = 5;
+  private file: File | null = null;
+  private onChange: (file: File | null) => void = () => {};
+  private onTouched: () => void = () => {};
+
+  writeValue(file: File | null): void {
+    if (file) {
+      this.previewImage(file);
+    }
+    this.file = file;
+  }
+
+  registerOnChange(fn: (file: File | null) => void): void {
+    this.onChange = fn;
+  }
+
+  registerOnTouched(fn: () => void): void {
+    this.onTouched = fn;
+  }
 
   onFileSelected(event: Event): void {
     this.errorMessage = null;
@@ -41,6 +67,8 @@ export class FileInputComponent {
 
     this.previewImage(file);
     this.imageSelected.emit(file);
+    this.file = file;
+    this.onChange(file); // Notificar o formulário sobre a mudança do valor
   }
 
   private isFileTypeValid(file: File): boolean {

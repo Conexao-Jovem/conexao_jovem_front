@@ -1,0 +1,60 @@
+<main class="container">
+  <header class="container__header">
+    <app-button [roundedFullSquared]="true" [color]="'neutral'" [variant]="'icon'"> <lucide-angular [img]="BackIcon"></lucide-angular></app-button>
+    <p>Detalhes do Evento</p>
+    <img [src]="'https://github.com/gibranKhalil.png'" />
+  </header>
+  <div class="container__eventImg">
+    <img [src]="imgUrl" />
+  </div>
+  <section class="container__details">
+    <header>
+      <h1>Acampamento de Carnaval</h1>
+      <ul>
+        <li>
+          <lucide-angular [size]="16" [img]="Calendar"></lucide-angular>
+          <p>Sex, 28 - Seg 03</p>
+        </li>
+        <li>
+          <lucide-angular [size]="16" [img]="Map"></lucide-angular>
+          <p>Elias Fausto, SP</p>
+        </li>
+      </ul>
+    </header>
+    <article class="ownerCard">
+      <img [src]="imgUrl2" />
+      <hgroup>
+        <h3>Conexão Jovem</h3>
+        <h4>8 Eventos Realizados</h4>
+      </hgroup>
+    </article>
+    <p class="description">
+      <strong>Sobre o evento:</strong>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    </p>
+    <div class="tickets">
+      <h2>Ingressos</h2>
+      <article class="ticketCard">
+        <div>
+          <i>
+            <lucide-angular [img]="Ticket"></lucide-angular>
+          </i>
+          <hgroup>
+            <h4>Ingresso Padrão</h4>
+            <h5>Estadia + Passagem</h5>
+          </hgroup>
+        </div>
+        <p><span>R$</span>{{ (12).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }).replace('R$', '') }}</p>
+      </article>
+    </div>
+    <footer>
+      <app-button [roundedFullSquared]="true" variant="icon" [color]="'neutral'">
+        <lucide-angular [img]="XIcon"></lucide-angular>
+      </app-button>
+      <app-button [customStyle]="{ width: '100%' }" [variant]="'contained'" color="primary" [roundedFull]="true" [customStyle]="{ width: '100%' }"
+        >Comprar Ingresso</app-button
+      >
+    </footer>
+  </section>
+</main>

@@ -40,7 +40,7 @@
 
 .button--cancel--icon {
   color: #e5484d !important;
-  background-color: #FEEBEC !important;
+  background-color: #feebec !important;
   aspect-ratio: 1;
   border-radius: 6px !important;
   width: 32px;
@@ -84,6 +84,24 @@
   background-color: #30a46c;
 }
 
+.button--neutral--contained {
+  background-color: colors.$gray-3;
+}
+
+.button--neutral--icon {
+  background-color: colors.$gray-3;
+  aspect-ratio: 1;
+  border-radius: 6px;
+  width: 36px;
+  padding: 16px;
+  box-shadow: none;
+  @include mixins.center-content;
+}
+
+.button--neutral {
+  color: colors.$gray-11;
+}
+
 .button--submit {
   color: #30a46c;
 }
@@ -112,4 +130,8 @@
   gap: 4px !important;
   @include mixins.vertical-align;
   justify-content: center;
+}
+
+.rounded {
+  border-radius: 50% !important;
 }
