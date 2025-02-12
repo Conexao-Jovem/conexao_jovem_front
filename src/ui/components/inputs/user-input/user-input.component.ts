@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { UserInputService } from './user-input.service';
 
 @Component({
   selector: 'app-user-input',
@@ -9,4 +10,10 @@ import { Component, Input } from '@angular/core';
 export class UserInputComponent {
   @Input() label?: string;
   @Input() multiSelect?: boolean = false;
+
+  constructor(private userInputService: UserInputService) {}
+
+  toggleModal() {
+    this.userInputService.toggleModal();
+  }
 }

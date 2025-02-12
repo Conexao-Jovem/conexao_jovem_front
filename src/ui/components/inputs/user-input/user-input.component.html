@@ -2,7 +2,7 @@
   @if (label) {
   <label class="container__label">{{ label }}</label>
   }
-  <article class="container__input">
+  <article (click)="toggleModal()" class="container__input">
     <img src="/defaultUser.png" alt="User Default" />
     <p>Clique aqui para selecionar</p>
   </article>

@@ -3,7 +3,6 @@
 
 .container {
   padding: 24px 16px 68px 16px;
-  position: relative;
 }
 
 .flex {
@@ -12,13 +11,10 @@
 }
 
 .flex-content {
-  
-
   gap: 1rem;
   width: 100%;
   flex-direction: column;
   margin-top: 6px;
-
 }
 
 .active {
@@ -26,4 +22,8 @@
   color: white;
 }
 
-
+.addButton {
+  position: absolute;
+  bottom: 72px;
+  right: 16px;
+}

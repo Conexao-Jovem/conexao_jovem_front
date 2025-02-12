@@ -1,34 +1,31 @@
 <main class="container">
   <app-title title="Calendário" subTitle="Gerencie eventos e escalas"></app-title>
-  
+
   <div class="flex">
-    <app-toggle 
-      title="Escalas" 
-      [isActive]="activeView === 'scales'"
-      (click)="showScales()">
-    </app-toggle>
-    <app-toggle 
-      title="Eventos" 
-      [isActive]="activeView === 'events'"
-      (click)="showEvents()">
-    </app-toggle>
+    <app-toggle title="Escalas" [isActive]="activeView === 'scales'" (click)="showScales()"> </app-toggle>
+    <app-toggle title="Eventos" [isActive]="activeView === 'events'" (click)="showEvents()"> </app-toggle>
   </div>
 
   <div class="flex-content">
     @if (activeView === 'scales') {
-      <app-accordion-calendar date="25/01"></app-accordion-calendar>
+    <app-accordion-calendar date="25/01"></app-accordion-calendar>
+    } @if (activeView === 'events') {
+    <app-event-card
+      [currentMembers]="34"
+      [maxMembers]="50"
+      [price]="50"
+      [description]="'Elias Fausto - SP'"
+      [title]="'Acampamento de Carnaval'"
+      [date]="date"
+      [imgUrl]="imgUrl"
+    >
+    </app-event-card>
     }
+  </div>
 
-    @if (activeView === 'events') {
-      <app-event-card
-        [currentMembers]="34"
-        [maxMembers]="50"
-        [price]="50"
-        [description]="'Elias Fausto - SP'"
-        [title]="'Acampamento de Carnaval'"
-        [date]="date"
-        [imgUrl]="imgUrl">
-      </app-event-card>
-    }
+  <div class="addButton">
+    <app-button [roundedFullSquared]="true" [variant]="'icon'" [color]="'primary'">
+      <lucide-angular [img]="PlusIcon"></lucide-angular>
+    </app-button>
   </div>
 </main>

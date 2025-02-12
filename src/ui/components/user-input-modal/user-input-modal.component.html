@@ -1,4 +1,6 @@
-<span class="overlay"></span>
+@if(isOpen){
+<span (click)="toggleModal()" class="overlay"></span>
+} @if (isOpen) {
 <article class="modal">
   <div class="search">
     <div class="search__input">
@@ -13,11 +15,15 @@
       <ul class="search__result__list">
         @for (user of users; track $index) {
         <li>
-          <app-checkbox></app-checkbox>
+          <app-checkbox [checked]="selectedUsers.includes(user)" (change)="toggleUserSelection(user)"></app-checkbox>
           <p>{{ user.name }}</p>
         </li>
         }
       </ul>
+      <div class="submit">
+        <button (click)="getSelectedUsers()">Ver Selecionados</button>
+      </div>
     </div>
   </div>
 </article>
+}

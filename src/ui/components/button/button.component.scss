@@ -38,6 +38,16 @@
   @include mixins.center-content;
 }
 
+.button--primary--icon {
+  color: #fff !important;
+  background-color: colors.$purple-9 !important;
+  aspect-ratio: 1;
+  border-radius: 6px !important;
+  width: 48px;
+  padding: 16px !important;
+  @include mixins.center-content;
+}
+
 .button--cancel--icon {
   color: #e5484d !important;
   background-color: #feebec !important;
