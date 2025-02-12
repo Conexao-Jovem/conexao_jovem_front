@@ -1,0 +1,4 @@
+<label [for]="value" class="checkbox-container" [ngClass]="size">
+  <input type="checkbox" [id]="value" [checked]="checked" [disabled]="disabled" (change)="onChange()" />
+  <span class="checkbox-label">{{ label }}</span>
+</label>

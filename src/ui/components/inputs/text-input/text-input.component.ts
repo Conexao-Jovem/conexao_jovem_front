@@ -1,9 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component, forwardRef, Input } from '@angular/core';
 import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { LucideAngularModule, Search } from 'lucide-angular';
 
 @Component({
   selector: 'app-text-input',
-  imports: [FormsModule],
+  imports: [FormsModule, LucideAngularModule, CommonModule],
   templateUrl: './text-input.component.html',
   styleUrl: './text-input.component.scss',
   providers: [
@@ -15,6 +17,8 @@ import { ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR } from '@angular/f
   ]
 })
 export class TextInputComponent implements ControlValueAccessor {
+  readonly SearchIcon = Search;
+
   @Input() inputProps: Partial<HTMLInputElement> = {};
   @Input() label?: string;
 

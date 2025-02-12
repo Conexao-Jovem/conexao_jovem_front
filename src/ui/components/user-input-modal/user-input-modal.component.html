@@ -1,0 +1,23 @@
+<span class="overlay"></span>
+<article class="modal">
+  <div class="search">
+    <div class="search__input">
+      <app-text-input [inputProps]="searchInputProps"></app-text-input>
+    </div>
+
+    <div class="search__result">
+      <h3>
+        Usuários
+        <div>{{ users.length }}</div>
+      </h3>
+      <ul class="search__result__list">
+        @for (user of users; track $index) {
+        <li>
+          <app-checkbox></app-checkbox>
+          <p>{{ user.name }}</p>
+        </li>
+        }
+      </ul>
+    </div>
+  </div>
+</article>

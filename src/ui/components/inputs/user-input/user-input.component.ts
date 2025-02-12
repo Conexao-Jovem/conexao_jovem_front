@@ -8,4 +8,5 @@ import { Component, Input } from '@angular/core';
 })
 export class UserInputComponent {
   @Input() label?: string;
+  @Input() multiSelect?: boolean = false;
 }

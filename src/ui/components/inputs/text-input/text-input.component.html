@@ -2,14 +2,22 @@
   @if (label) {
   <label [htmlFor]="inputProps.id || inputProps.name" class="container__label">{{ label }}</label>
   }
-  <input
-    class="container__input"
-    [type]="inputProps.type || 'text'"
-    [disabled]="inputProps.disabled || false"
-    [placeholder]="inputProps.placeholder"
-    [name]="inputProps.name || ''"
-    [id]="inputProps.id || inputProps.name"
-    [(ngModel)]="value"
-    (ngModelChange)="onInputChange($event)"
-  />
+  <div [ngClass]="{ search__input: inputProps.type === 'search' }">
+    @if (inputProps.type === 'search') {
+    <i>
+      <lucide-angular [size]="18" [img]="SearchIcon"></lucide-angular>
+    </i>
+    }
+    <input
+      [ngClass]="{ 'border-none': inputProps.type === 'search' }"
+      class="container__input"
+      [type]="inputProps.type || 'text'"
+      [disabled]="inputProps.disabled || false"
+      [placeholder]="inputProps.placeholder"
+      [name]="inputProps.name || ''"
+      [id]="inputProps.id || inputProps.name"
+      [(ngModel)]="value"
+      (ngModelChange)="onInputChange($event)"
+    />
+  </div>
 </div>

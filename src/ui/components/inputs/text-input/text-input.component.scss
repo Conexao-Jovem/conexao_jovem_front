@@ -1,4 +1,5 @@
 @use '../../../styles/colors' as colors;
+@use '../../../styles/mixins' as mixins;
 
 .container {
   display: flex;
@@ -11,6 +12,7 @@
     padding: 16px;
     border-radius: 6px;
     transition: 0.3s;
+    flex: 1;
 
     &:focus {
       outline: none;
@@ -27,5 +29,24 @@
     font-weight: 500;
     color: colors.$gray-12;
     font-size: 12px;
+  }
+}
+
+.border-none {
+  border: none !important;
+  padding: 0;
+}
+
+.search__input {
+  @include mixins.vertical-align;
+  border: 2px solid colors.$gray-5;
+  transition: 0.3s;
+  border-radius: 6px;
+  padding: 8px;
+  gap: 8px;
+
+  &:focus-within {
+    border-color: colors.$purple-9;
+    color: colors.$purple-9;
   }
 }
