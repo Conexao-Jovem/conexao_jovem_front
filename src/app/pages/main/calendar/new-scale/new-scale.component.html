@@ -1,0 +1,22 @@
+<main class="container">
+  <app-title [title]="'Nova Escala'" [subTitle]="'Crie uma nova escala'"></app-title>
+  <section>
+    <h3>Selecione um dia</h3>
+    <div>
+      <h4>Escalas já criadas</h4>
+      <ul></ul>
+    </div>
+    <div>
+      <h4>Crie uma nova escala</h4>
+    </div>
+  </section>
+  <section>
+    <h3>Selecione seu departamento</h3>
+  </section>
+  <footer>
+    <app-button [roundedFullSquared]="true" variant="icon" [color]="'neutral'">
+      <lucide-angular [img]="XIcon"></lucide-angular>
+    </app-button>
+    <app-button [color]="'primary'" [variant]="'contained'" [roundedFull]="true">Confirmar</app-button>
+  </footer>
+</main>

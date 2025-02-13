@@ -8,6 +8,7 @@ import { NewMemberPage } from './pages/main/members/new/new.component';
 import { MainTemplateComponent } from './templates/main/main.component';
 import { HomePage } from './pages/main/home/home.component';
 import { EventPage } from './pages/main/event/event-page.component';
+import { NewScaleComponent } from './pages/main/calendar/new-scale/new-scale.component';
 
 export const routes: Routes = [
   {
@@ -30,6 +31,10 @@ export const routes: Routes = [
       {
         path: 'calendar',
         component: CalendarComponent
+      },
+      {
+        path: 'calendar/scale/new',
+        component: NewScaleComponent
       },
       {
         path: 'members',
