@@ -2,7 +2,9 @@
   <app-title [subTitle]="'Preencha as informações abaixo'" title="Novo Ministério" />
   <form class="container__form">
     <app-file-input />
-    <app-text-input [label]="'Título'" [inputProps]="titleInputProps" />
+    <div>
+      <app-text-input [label]="'Título'" [inputProps]="titleInputProps" />
+    </div>
     <app-user-input [label]="'Responsável'" />
     <app-user-input [multiSelect]="true" [label]="'Membros'" />
     <app-button [customStyle]="{ width: '100%' }" [roundedFull]="true" [variant]="'contained'" [color]="'primary'" [type]="'submit'"
