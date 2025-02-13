@@ -1,22 +1,26 @@
 <main class="container">
   <app-title [title]="'Nova Escala'" [subTitle]="'Crie uma nova escala'"></app-title>
-  <section>
-    <h3>Selecione um dia</h3>
-    <div>
-      <h4>Escalas já criadas</h4>
+  <section class="section">
+    <h3 class="section__title">Selecione um dia</h3>
+    <div class="section__subSection">
+      @if(scales.length > 0) {
+      <h4 class="section__subtitle">Escalas já criadas</h4>
       <ul></ul>
+      }
     </div>
-    <div>
-      <h4>Crie uma nova escala</h4>
+    <div class="section__subSection">
+      <h4 class="section__subtitle">Crie uma nova escala</h4>
+      <app-date-input></app-date-input>
     </div>
   </section>
-  <section>
-    <h3>Selecione seu departamento</h3>
+  <section class="section">
+    <h3 class="section__title">Selecione seu departamento</h3>
+    <app-select-input formControlName="department" [inputProps]="departmentInput" [Options]="departmentOptions" [label]="'Departamento'" />
   </section>
-  <footer>
+  <footer class="container__footer">
     <app-button [roundedFullSquared]="true" variant="icon" [color]="'neutral'">
       <lucide-angular [img]="XIcon"></lucide-angular>
     </app-button>
-    <app-button [color]="'primary'" [variant]="'contained'" [roundedFull]="true">Confirmar</app-button>
+    <app-button [customStyle]="{ width: '100%' }" [color]="'primary'" [variant]="'contained'" [roundedFull]="true">Confirmar</app-button>
   </footer>
 </main>

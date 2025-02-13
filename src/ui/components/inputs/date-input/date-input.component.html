@@ -1,0 +1,6 @@
+<div class="container">
+  @if(placeholder){
+  <label>{{ placeholder }}</label>
+  }
+  <input class="container__input" type="date" [value]="value" (input)="onInputChange($event)" [disabled]="disabled" />
+</div>

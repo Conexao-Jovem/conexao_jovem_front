@@ -1,0 +1,47 @@
+@use '../../../../../ui/styles/mixins' as mixins;
+@use '../../../../../ui/styles/colors' as colors;
+
+.container {
+  padding: 24px 16px 68px 16px;
+
+  &__footer {
+    position: absolute;
+    bottom: 72px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 95vw;
+    @include mixins.vertical-align;
+    gap: 8px;
+    width: 100%;
+
+    > app-button:last-child {
+      width: 100%;
+    }
+  }
+}
+
+.section {
+  margin-bottom: 24px;
+  &__title {
+    font-size: 16px;
+    font-weight: 600;
+    color: colors.$gray-12;
+    margin-bottom: 12px;
+  }
+
+  &__subtitle {
+    font-size: 14px;
+    color: colors.$gray-11;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+
+  &__subSection {
+    margin-bottom: 16px;
+
+    > p {
+      margin: 12px;
+      font-size: 14px;
+    }
+  }
+}
