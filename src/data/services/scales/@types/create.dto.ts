@@ -15,20 +15,14 @@ export class CreateScaleDto {
   ministeryID!: number;
 
   /**
-   * Identificador único da escala.
-   * @type {number}
-   */
-  id!: number;
-
-  /**
    * Lista de ids dos membros associados à escala.
    * @type {string[]}
    */
-  membersId!: string[];
+  membersId?: string[];
 
   /**
    * Status atual da escala.
    * @type {ScaleStatus}
    */
-  status!: ScaleStatus;
+  status?: ScaleStatus;
 }

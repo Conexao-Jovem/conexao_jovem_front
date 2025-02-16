@@ -8,7 +8,7 @@ export class Ministery {
    * Identificador único do ministério.
    * @type {number}
    */
-  id!: number;
+  id!: string;
 
   /**
    * Nome do ministério.

@@ -40,9 +40,10 @@
       background-color: orange;
       color: #fff;
       border-radius: 8px;
-      padding: 6px;
+      padding: 8px;
       aspect-ratio: 1;
-      width: 36px;
+      width: 40px;
+      height: 40px;
       @include mixins.vertical-align;
       justify-content: center;
     }

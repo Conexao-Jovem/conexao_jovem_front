@@ -1,26 +1,30 @@
 <main class="container">
   <app-title [title]="'Nova Escala'" [subTitle]="'Crie uma nova escala'"></app-title>
-  <section class="section">
-    <h3 class="section__title">Selecione um dia</h3>
-    <div class="section__subSection">
-      @if(scales.length > 0) {
-      <h4 class="section__subtitle">Escalas já criadas</h4>
-      <ul></ul>
-      }
-    </div>
-    <div class="section__subSection">
-      <h4 class="section__subtitle">Crie uma nova escala</h4>
-      <app-date-input></app-date-input>
-    </div>
-  </section>
-  <section class="section">
-    <h3 class="section__title">Selecione seu departamento</h3>
-    <app-select-input formControlName="department" [inputProps]="departmentInput" [Options]="departmentOptions" [label]="'Departamento'" />
-  </section>
-  <footer class="container__footer">
-    <app-button [roundedFullSquared]="true" variant="icon" [color]="'neutral'">
-      <lucide-angular [img]="XIcon"></lucide-angular>
-    </app-button>
-    <app-button [customStyle]="{ width: '100%' }" [color]="'primary'" [variant]="'contained'" [roundedFull]="true">Confirmar</app-button>
-  </footer>
+  <form [formGroup]="form">
+    <section class="section">
+      <h3 class="section__title">Selecione um dia</h3>
+      <div class="section__subSection">
+        @if(scales.length > 0) {
+        <h4 class="section__subtitle">Escalas já criadas</h4>
+        <ul></ul>
+        }
+      </div>
+      <div class="section__subSection">
+        <h4 class="section__subtitle">Crie uma nova escala</h4>
+        <app-date-input formControlName="date" />
+      </div>
+    </section>
+    <section class="section">
+      <h3 class="section__title">Selecione seu departamento</h3>
+      <app-select-input formControlName="department" [inputProps]="departmentInput" [Options]="departmentOptions" [label]="'Departamento'" />
+    </section>
+    <footer class="container__footer">
+      <app-button [roundedFullSquared]="true" variant="icon" [color]="'neutral'">
+        <lucide-angular [img]="XIcon"></lucide-angular>
+      </app-button>
+      <app-button (btnClick)="onSubmit()" [customStyle]="{ width: '100%' }" [color]="'primary'" [variant]="'contained'" [roundedFull]="true"
+        >Confirmar</app-button
+      >
+    </footer>
+  </form>
 </main>

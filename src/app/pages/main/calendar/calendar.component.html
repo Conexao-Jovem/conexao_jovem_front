@@ -1,7 +1,7 @@
 <main class="container">
   <app-title title="Calendário" subTitle="Gerencie eventos e escalas"></app-title>
 
-  <div class="flex">
+  <div class="toggles">
     <app-toggle title="Escalas" [isActive]="activeView === 'scales'" (click)="showScales()"> </app-toggle>
     <app-toggle title="Eventos" [isActive]="activeView === 'events'" (click)="showEvents()"> </app-toggle>
   </div>
@@ -24,7 +24,7 @@
   </div>
 
   <div class="addButton">
-    <app-button [roundedFullSquared]="true" [variant]="'icon'" [color]="'primary'">
+    <app-button (btnClick)="redirectToNewContent()" [roundedFullSquared]="true" [variant]="'icon'" [color]="'primary'">
       <lucide-angular [img]="PlusIcon"></lucide-angular>
     </app-button>
   </div>
