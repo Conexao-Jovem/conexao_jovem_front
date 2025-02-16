@@ -21,9 +21,9 @@ export class CreateMinisteryDto {
   /**
    * Nome ou identificação do principal responsável pelo ministério.
    * @type {string}
-   * @example "João Silva"
+   * @example "daseq"
    */
-  principal!: string;
+  principalId!: string;
 
   /**
    * URL da imagem associada ao ministério.

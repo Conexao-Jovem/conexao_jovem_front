@@ -1,13 +1,19 @@
 <main class="container">
   <app-title [subTitle]="'Preencha as informações abaixo'" title="Novo Ministério" />
-  <form class="container__form">
-    <app-file-input />
+  <form [formGroup]="form" class="container__form">
+    <app-file-input formControlName="image" />
     <div>
-      <app-text-input [label]="'Título'" [inputProps]="titleInputProps" />
+      <app-text-input formControlName="title" [label]="'Título'" [inputProps]="titleInputProps" />
     </div>
-    <app-user-input [componentId]="'1'" [label]="'Responsável'" />
-    <app-user-input [componentId]="'2'" [multiSelect]="true" [label]="'Membros'" />
-    <app-button [customStyle]="{ width: '100%' }" [roundedFull]="true" [variant]="'contained'" [color]="'primary'" [type]="'submit'"
+    <app-user-input (selectUser)="onSelectPrincipalUser($event)" [label]="'Responsável'" />
+    <app-user-input (selectUser)="onSelectUsers($event)" [multiSelect]="true" [label]="'Membros'" />
+    <app-button
+      (btnClick)="onSubmit()"
+      [customStyle]="{ width: '100%' }"
+      [roundedFull]="true"
+      [variant]="'contained'"
+      [color]="'primary'"
+      [type]="'submit'"
       >Enviar</app-button
     >
   </form>

@@ -20,13 +20,13 @@ export class Ministery {
    * Lista de membros associados ao ministério.
    * @type {User[]}
    */
-  members!: User[];
+  membersId!: string[];
 
   /**
    * Nome ou identificação do principal responsável pelo ministério.
    * @type {string}
    */
-  principal!: string;
+  principalId!: string;
 
   /**
    * URL da imagem associada ao ministério.

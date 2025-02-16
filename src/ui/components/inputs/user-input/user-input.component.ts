@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { User } from '../../../../data/services/user/@types/find.dto';
 import { UserCardComponent } from '../../user-card/user-card.component';
 import { CommonModule } from '@angular/common';
@@ -17,7 +17,7 @@ import { FormsModule } from '@angular/forms';
 export class UserInputComponent implements OnInit {
   @Input() label?: string;
   @Input() multiSelect: boolean = false;
-  @Input() componentId: string = 'default-id';
+  @Output() selectUser = new EventEmitter<User[]>();
 
   selectedUserIds: Set<string> = new Set();
   selectedUsersArray: User[] = [];
@@ -48,6 +48,7 @@ export class UserInputComponent implements OnInit {
 
   private updateSelectedUsersArray() {
     this.selectedUsersArray = this.users.filter(user => this.selectedUserIds.has(user.id));
+    this.selectUser.emit(this.selectedUsersArray);
   }
 
   handleSelectUser(user: User) {
