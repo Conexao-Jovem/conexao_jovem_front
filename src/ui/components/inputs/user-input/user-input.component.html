@@ -2,8 +2,52 @@
   @if (label) {
   <label class="container__label">{{ label }}</label>
   }
-  <article (click)="toggleModal()" class="container__input">
+  <article (click)="toggleModal()" [ngClass]="{ container__input: selectedUsersArray.length == 0 }">
+    @if (selectedUsersArray.length == 0) {
     <img src="/defaultUser.png" alt="User Default" />
     <p>Clique aqui para selecionar</p>
+    } @else { @if (multiSelect) {
+    <ul class="multiSelect__list">
+      @for (user of selectedUsersArray; track user.id) {
+      <li>
+        <app-user-card [selectToListMode]="true" [ministeryId]="user.ministeryID" [imgUrl]="user.imgUrl" [name]="user.name"></app-user-card>
+      </li>
+      }
+    </ul>
+    } @else {
+    <app-user-card
+      [selectToListMode]="true"
+      [ministeryId]="selectedUsersArray[0].ministeryID"
+      [imgUrl]="selectedUsersArray[0].imgUrl"
+      [name]="selectedUsersArray[0].name"
+    ></app-user-card>
+    } }
   </article>
 </div>
+
+@if (isOpenModal) {
+<span (click)="toggleModal()" class="overlay"></span>
+} @if (isOpenModal) {
+<article class="modal">
+  <div class="search">
+    <div class="search__input">
+      <app-text-input [(ngModel)]="filterText" (ngModelChange)="onChangeFilterText($event)" [inputProps]="searchInputProps"></app-text-input>
+    </div>
+
+    <div class="search__result">
+      <h3>
+        Usuários
+        <div>{{ filteredUsers.length }}</div>
+      </h3>
+      <ul class="search__result__list">
+        @for (user of filteredUsers; track user.id) {
+        <li>
+          <app-checkbox [checked]="isUserSelected(user)" (change)="handleSelectUser(user)"></app-checkbox>
+          <p>{{ user.name }}</p>
+        </li>
+        }
+      </ul>
+    </div>
+  </div>
+</article>
+}

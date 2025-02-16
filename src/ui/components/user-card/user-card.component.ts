@@ -13,14 +13,15 @@ export class UserCardComponent implements OnInit {
   @Input() name: string = '';
   @Input() ministeryId: number = 0;
   @Input() imgUrl: string = '';
-  @Input() selectToScaleMode?: boolean;
+  @Input() selectToListMode?: boolean;
   @Input() lastParticipation?: Date;
+
   readonly EditIcon = Pencil;
   readonly DeleteIcon = Trash2;
+
   protected lastParticipationParsed: string = '';
 
   ngOnInit(): void {
-  this.lastParticipationParsed = this.lastParticipation ? this.lastParticipation.toLocaleDateString('pt-BR') : ''
+    this.lastParticipationParsed = this.lastParticipation ? this.lastParticipation.toLocaleDateString('pt-BR') : '';
   }
-
 }

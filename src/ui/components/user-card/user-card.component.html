@@ -6,29 +6,25 @@
         {{ name }}
       </h3>
       <h4>
-        @if(!selectToScaleMode){
-          {{ ministeryId }}
-        }
-        @if(selectToScaleMode){
-          Última participação: {{lastParticipationParsed}}
+        @if(!selectToListMode){
+        {{ ministeryId }}
+        } @if(selectToListMode){ Última participação: {{ lastParticipationParsed }}
         }
       </h4>
     </hgroup>
   </div>
   <div class="card__actions">
-    @if (!selectToScaleMode) {
-      <app-button [color]="'none'" [variant]="'icon'">
-        <lucide-angular size="16" [img]="EditIcon"></lucide-angular>
-      </app-button>
-      <app-button [color]="'none'" [variant]="'icon'">
-        <app-two-dot-icon></app-two-dot-icon>
-      </app-button>
-    }
-
-    @if(selectToScaleMode){
-      <app-button [color]="'cancel'" [variant]="'icon'">
-        <lucide-angular size="16" [img]="DeleteIcon"></lucide-angular>
-      </app-button>
+    @if (!selectToListMode) {
+    <app-button [color]="'none'" [variant]="'icon'">
+      <lucide-angular size="16" [img]="EditIcon"></lucide-angular>
+    </app-button>
+    <app-button [color]="'none'" [variant]="'icon'">
+      <app-two-dot-icon></app-two-dot-icon>
+    </app-button>
+    } @if(selectToListMode){
+    <app-button [color]="'cancel'" [variant]="'icon'">
+      <lucide-angular size="16" [img]="DeleteIcon"></lucide-angular>
+    </app-button>
     }
   </div>
 </article>

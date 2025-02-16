@@ -4,9 +4,9 @@
 export class User {
   /**
    * Identificador único do usuário.
-   * @type {number}
+   * @type {string}
    */
-  id!: number;
+  id!: string;
 
   /**
    * Nome completo do usuário.

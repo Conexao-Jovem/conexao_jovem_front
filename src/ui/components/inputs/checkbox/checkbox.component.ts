@@ -15,10 +15,11 @@ export class CheckboxComponent {
   @Input() size: 'small' | 'medium' | 'large' = 'medium';
   @Output() change: EventEmitter<boolean> = new EventEmitter<boolean>();
 
-  onChange() {
+  onChange(event: Event) {
+    event.stopPropagation();
     if (!this.disabled) {
-      this.checked = !this.checked;
-      this.change.emit(this.checked);
+      const isChecked = (event.target as HTMLInputElement).checked;
+      this.change.emit(isChecked);
     }
   }
 }

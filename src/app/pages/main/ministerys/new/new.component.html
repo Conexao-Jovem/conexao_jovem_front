@@ -5,11 +5,10 @@
     <div>
       <app-text-input [label]="'Título'" [inputProps]="titleInputProps" />
     </div>
-    <app-user-input [label]="'Responsável'" />
-    <app-user-input [multiSelect]="true" [label]="'Membros'" />
+    <app-user-input [componentId]="'1'" [label]="'Responsável'" />
+    <app-user-input [componentId]="'2'" [multiSelect]="true" [label]="'Membros'" />
     <app-button [customStyle]="{ width: '100%' }" [roundedFull]="true" [variant]="'contained'" [color]="'primary'" [type]="'submit'"
       >Enviar</app-button
     >
   </form>
 </main>
-<app-user-input-modal></app-user-input-modal>

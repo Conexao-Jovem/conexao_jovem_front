@@ -7,8 +7,6 @@ import { UserService } from '../../../../data/services/firebaseServices/user/use
   providedIn: 'root'
 })
 export class UserInputService {
-  private isOpenSubject = new BehaviorSubject<boolean>(false);
-  isOpen$ = this.isOpenSubject.asObservable();
   usersSubject = new BehaviorSubject<User[]>([]);
   users$ = this.usersSubject.asObservable();
 
@@ -21,25 +19,5 @@ export class UserInputService {
   async loadUsers() {
     const users = await this.userService.findAll();
     this.usersSubject.next(users);
-  }
-
-  toggleModal() {
-    this.isOpenSubject.next(!this.isOpenSubject.value);
-  }
-
-  openModal() {
-    this.isOpenSubject.next(true);
-  }
-
-  closeCard() {
-    this.isOpenSubject.next(false);
-  }
-
-  isOpen() {
-    return this.isOpen$;
-  }
-
-  getUsers() {
-    return this.usersSubject.getValue();
   }
 }
