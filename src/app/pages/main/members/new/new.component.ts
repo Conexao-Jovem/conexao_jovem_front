@@ -7,6 +7,9 @@ import { ButtonComponent } from '../../../../../ui/components/button/button.comp
 import { UserService } from '../../../../../data/services/firebaseServices/user/user.service';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CreateUserDto } from '../../../../../data/services/user/@types/create.dto';
+import { MinisteryService } from '../../../../../data/services/firebaseServices/ministery/ministery.service';
+import { Router } from '@angular/router';
+import { arrayUnion } from 'firebase/firestore';
 
 @Component({
   selector: 'app-new',
@@ -17,22 +20,39 @@ import { CreateUserDto } from '../../../../../data/services/user/@types/create.d
 export class NewMemberPage implements OnInit {
   form!: FormGroup;
 
-  constructor(private userService: UserService) {}
+  departmentOptions: Partial<HTMLOptionElement>[] = [
+    {
+      value: '0',
+      label: 'Selecione um departamento'
+    }
+  ];
 
-  ngOnInit(): void {
+  constructor(private userService: UserService, private ministeryService: MinisteryService, private router: Router) {}
+
+  async ngOnInit(): Promise<void> {
     this.form = new FormGroup({
       image: new FormControl(null, [Validators.required]),
       email: new FormControl('', [Validators.required, Validators.email]),
       name: new FormControl('', [Validators.required, Validators.minLength(3)]),
       lastname: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      department: new FormControl('', Validators.required)
+      department: new FormControl('')
     });
+
+    await this.loadDepartments();
+  }
+
+  async loadDepartments() {
+    const ministerys = await this.ministeryService.findAll();
+    const ministerysToOption: Partial<HTMLOptionElement>[] = ministerys.map(ministery => ({ value: ministery.id, label: ministery.name }));
+
+    this.departmentOptions = this.departmentOptions.concat(ministerysToOption);
   }
 
   async onSubmit(): Promise<void> {
     if (this.form.valid) {
       this.createUser();
       console.log('Sucesso');
+      this.router.navigate(['/main/members']);
     } else {
       console.log('Formulário inválido');
     }
@@ -42,12 +62,15 @@ export class NewMemberPage implements OnInit {
     const user: CreateUserDto = {
       email: this.form.value.email,
       name: `${this.form.value.name} ${this.form.value.lastname}`,
-      ministeryID: Number(this.form.value.department),
+      ministeryID: this.form.value.department || '',
       password: `${this.form.value.name}@conexao`,
       imgUrl: `defaultUser.png`
     };
 
-    await this.userService.create(user);
+    const newUser = await this.userService.create(user);
+    await this.ministeryService.update(this.form.value.department, {
+      membersId: arrayUnion(newUser)
+    });
   }
 
   emailInput: Partial<HTMLInputElement> = {
@@ -72,19 +95,4 @@ export class NewMemberPage implements OnInit {
     name: 'department',
     ariaPlaceholder: 'Selecione um departamento'
   };
-
-  departmentOptions: Partial<HTMLOptionElement>[] = [
-    {
-      value: '0',
-      label: 'Selecione um departamento'
-    },
-    {
-      value: '1',
-      label: 'Louvor'
-    },
-    {
-      value: '2',
-      label: 'Diretoria'
-    }
-  ];
 }

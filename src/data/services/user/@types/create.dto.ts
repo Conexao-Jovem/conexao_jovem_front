@@ -15,7 +15,7 @@ export class CreateUserDto {
    * Identificador do ministério ao qual o usuário está associado.
    * @type {number}
    */
-  ministeryID?: number;
+  ministeryID?: string;
 
   /**
    * Senha do usuário (armazenada de forma segura, como hash).

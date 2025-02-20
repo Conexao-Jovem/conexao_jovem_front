@@ -11,7 +11,7 @@ import { TwoDotIconComponent } from '../../icons/two-dot-icon/two-dot-icon.compo
 })
 export class UserCardComponent implements OnInit {
   @Input() name: string = '';
-  @Input() ministeryId: number = 0;
+  @Input() ministeryId: string = '';
   @Input() imgUrl: string = '';
   @Input() selectToListMode?: boolean;
   @Input() lastParticipation?: Date;

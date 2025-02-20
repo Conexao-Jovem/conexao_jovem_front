@@ -8,6 +8,8 @@ import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { User } from '../../../../../data/services/user/@types/find.dto';
 import { CreateMinisteryDto } from '../../../../../data/services/ministery/@types/create.dto';
 import { MinisteryService } from '../../../../../data/services/firebaseServices/ministery/ministery.service';
+import { UserService } from '../../../../../data/services/firebaseServices/user/user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-new',
@@ -27,7 +29,7 @@ export class NewMinisteryPage implements OnInit {
     type: 'text'
   };
 
-  constructor(private ministeryService: MinisteryService) {}
+  constructor(private ministeryService: MinisteryService, private userService: UserService, private router: Router) {}
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -37,8 +39,9 @@ export class NewMinisteryPage implements OnInit {
   }
 
   async onSubmit(): Promise<void> {
-    if (this.form.valid && this.principalId !== '' && this.membersId.length > 0) {
+    if (this.form.valid && this.principalId !== '') {
       this.createMinistery();
+      this.router.navigate(['/main/ministerys']);
       console.log('Sucesso');
     } else {
       console.log('Formulário inválido');
@@ -53,7 +56,12 @@ export class NewMinisteryPage implements OnInit {
       principalId: this.principalId
     };
 
-    await this.ministeryService.create(ministery);
+    const ministeryId = await this.ministeryService.create(ministery);
+    await this.userService.update(this.principalId, { ministeryID: ministeryId });
+
+    for (const memberId of this.membersId) {
+      await this.userService.update(memberId, { ministeryID: ministeryId });
+    }
   }
 
   onSelectPrincipalUser(users: User[]) {

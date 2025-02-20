@@ -18,8 +18,16 @@
       <h3 class="section__title">Selecione seu departamento</h3>
       <app-select-input formControlName="department" [inputProps]="departmentInput" [Options]="departmentOptions" [label]="'Departamento'" />
     </section>
+    <section class="section">
+      <h3 class="section__title">Quem irá participar ?</h3>
+      @if (form.value.department !== '') {
+      <app-user-input [departmentId]="form.value.department" [multiSelect]="true" (selectUser)="onSelectUser($event)" />
+      } @else {
+      <p>Selecione um departamento primeiro</p>
+      }
+    </section>
     <footer class="container__footer">
-      <app-button [roundedFullSquared]="true" variant="icon" [color]="'neutral'">
+      <app-button (btnClick)="backToScaleList()" [roundedFullSquared]="true" variant="icon" [color]="'neutral'">
         <lucide-angular [img]="XIcon"></lucide-angular>
       </app-button>
       <app-button (btnClick)="onSubmit()" [customStyle]="{ width: '100%' }" [color]="'primary'" [variant]="'contained'" [roundedFull]="true"

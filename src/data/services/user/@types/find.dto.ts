@@ -22,9 +22,9 @@ export class User {
 
   /**
    * Identificador do ministério ao qual o usuário está associado.
-   * @type {number}
+   * @type {string}
    */
-  ministeryID!: number;
+  ministeryID!: string;
 
   /**
    * Identificador público do usuário (pode ser usado para fins de SEO ou URLs).

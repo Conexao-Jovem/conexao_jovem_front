@@ -8,10 +8,13 @@ import { SelectInputComponent } from '../../../../../ui/components/inputs/select
 import { MinisteryService } from '../../../../../data/services/firebaseServices/ministery/ministery.service';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CreateScaleDto } from '../../../../../data/services/scales/@types/create.dto';
+import { Router } from '@angular/router';
+import { UserInputComponent } from '../../../../../ui/components/inputs/user-input/user-input.component';
+import { User } from '../../../../../data/services/user/@types/find.dto';
 
 @Component({
   selector: 'app-new-scale',
-  imports: [TitleComponent, ButtonComponent, LucideAngularModule, DateInputComponent, SelectInputComponent, ReactiveFormsModule],
+  imports: [TitleComponent, ButtonComponent, LucideAngularModule, DateInputComponent, SelectInputComponent, ReactiveFormsModule, UserInputComponent],
   templateUrl: './new-scale.component.html',
   styleUrl: './new-scale.component.scss'
 })
@@ -22,7 +25,7 @@ export class NewScaleComponent implements OnInit {
 
   departmentOptions: Partial<HTMLOptionElement>[] = [
     {
-      value: '0',
+      value: '',
       label: 'Selecione um departamento'
     }
   ];
@@ -32,7 +35,7 @@ export class NewScaleComponent implements OnInit {
     ariaPlaceholder: 'Selecione um departamento'
   };
 
-  constructor(private ministeryService: MinisteryService) {}
+  constructor(private ministeryService: MinisteryService, private router: Router) {}
 
   async ngOnInit(): Promise<void> {
     this.form = new FormGroup({
@@ -45,11 +48,15 @@ export class NewScaleComponent implements OnInit {
   async onSubmit() {
     if (this.form.valid) {
       await this.createScale();
-      console.log('Sucesso');
+      this.backToScaleList();
     } else {
       console.log(this.form.value);
       console.log('Formulário Inválido');
     }
+  }
+
+  async backToScaleList() {
+    this.router.navigate(['/main/calendar']);
   }
 
   async loadDepartments() {
@@ -67,5 +74,9 @@ export class NewScaleComponent implements OnInit {
     console.log(newScale);
 
     // await this.ministeryService.create(newScale);
+  }
+
+  onSelectUser(user: User[]) {
+    console.log(user);
   }
 }

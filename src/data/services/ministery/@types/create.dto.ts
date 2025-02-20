@@ -1,3 +1,4 @@
+import { FieldValue } from 'firebase/firestore';
 import { User } from '../../user/@types/find.dto';
 
 /**
@@ -16,7 +17,7 @@ export class CreateMinisteryDto {
    * @type {string[]}
    * @example [{ id: 1}, { id: 2 }]
    */
-  membersId!: string[];
+  membersId!: string[] | FieldValue;
 
   /**
    * Nome ou identificação do principal responsável pelo ministério.

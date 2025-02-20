@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { User } from '../../../../data/services/user/@types/find.dto';
 import { UserCardComponent } from '../../user-card/user-card.component';
 import { CommonModule } from '@angular/common';
@@ -14,9 +14,10 @@ import { FormsModule } from '@angular/forms';
   templateUrl: './user-input.component.html',
   styleUrl: './user-input.component.scss'
 })
-export class UserInputComponent implements OnInit {
+export class UserInputComponent implements OnInit, OnChanges {
   @Input() label?: string;
   @Input() multiSelect: boolean = false;
+  @Input() departmentId?: string;
   @Output() selectUser = new EventEmitter<User[]>();
 
   selectedUserIds: Set<string> = new Set();
@@ -36,6 +37,23 @@ export class UserInputComponent implements OnInit {
   };
 
   ngOnInit(): void {
+    this.loadUsers();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['departmentId'] && !changes['departmentId'].firstChange) {
+      if (!this.departmentId) return;
+
+      this.selectedUsersArray = [];
+      this.selectedUserIds.clear();
+
+      this.filteredUsers = this.users
+        .filter(user => user.ministeryID === this.departmentId)
+        .filter(user => this.filterService.cleanText(user.name).includes(this.filterText));
+    }
+  }
+
+  loadUsers() {
     this.userInputService.users$.subscribe((users: User[]) => {
       this.users = users;
       this.filteredUsers = users;
