@@ -6,8 +6,6 @@ import { LoginPage } from './pages/login/login.component';
 import { MembersPage } from './pages/main/members/members.component';
 import { NewMemberPage } from './pages/main/members/new/new.component';
 import { MainTemplateComponent } from './templates/main/main.component';
-import { HomePage } from './pages/main/home/home.component';
-import { EventPage } from './pages/main/event/event-page.component';
 import { NewScaleComponent } from './pages/main/calendar/new-scale/new-scale.component';
 
 export const routes: Routes = [
@@ -17,17 +15,17 @@ export const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'main',
+    redirectTo: 'main/members',
     pathMatch: 'full'
   },
   {
     path: 'main',
     component: MainTemplateComponent,
     children: [
-      {
-        path: '',
-        component: HomePage
-      },
+      // {
+      //   path: '',
+      //   component: HomePage
+      // },
       {
         path: 'calendar',
         component: CalendarComponent
@@ -53,9 +51,9 @@ export const routes: Routes = [
         component: NewMinisteryPage
       }
     ]
-  },
-  {
-    path: 'main/event/:id',
-    component: EventPage
   }
+  // {
+  //   path: 'main/event/:id',
+  //   component: EventPage
+  // }
 ];

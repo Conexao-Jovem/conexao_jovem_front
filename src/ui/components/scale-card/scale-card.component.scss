@@ -1,0 +1,42 @@
+@use '../../styles/colors' as colors;
+@use '../../styles/mixins' as mixins;
+
+.card {
+  @include mixins.card-base-style;
+  padding: 12px;
+  border-radius: 6px;
+
+  &__header {
+    justify-content: space-between;
+    &,
+    > div {
+      @include mixins.vertical-align;
+      gap: 8px;
+      > img {
+        max-width: 48px;
+        aspect-ratio: 1;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  &__members {
+    margin-top: 12px;
+
+    &__list {
+      margin-top: 8px;
+      @include mixins.vertical-align;
+      gap: 4px;
+
+      > li {
+        > img {
+          border-radius: 50%;
+          max-width: 32px;
+          aspect-ratio: 1;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}

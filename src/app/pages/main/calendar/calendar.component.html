@@ -1,12 +1,21 @@
 <main class="container">
-  <app-title title="Calendário" subTitle="Gerencie eventos e escalas"></app-title>
+  <!-- <app-title title="Calendário" subTitle="Gerencie eventos e escalas"></app-title> -->
+  <app-title title="Escalas" subTitle="Gerencie as escalas da classe"></app-title>
 
-  <div class="toggles">
+  <!-- <div class="toggles">
     <app-toggle title="Escalas" [isActive]="activeView === 'scales'" (click)="showScales()"> </app-toggle>
     <app-toggle title="Eventos" [isActive]="activeView === 'events'" (click)="showEvents()"> </app-toggle>
-  </div>
+  </div> -->
 
-  <div class="flex-content">
+  <ul>
+    @for (scale of scales; track $index) {
+    <li>
+      <app-scale-card [date]="scale.date" [id]="scale.id" [members]="scale.members" [ministery]="scale.ministery" />
+    </li>
+    }
+  </ul>
+
+  <!-- <div class="flex-content">
     @if (activeView === 'scales') {
     <app-accordion-calendar date="25/01"></app-accordion-calendar>
     } @if (activeView === 'events') {
@@ -21,7 +30,7 @@
     >
     </app-event-card>
     }
-  </div>
+  </div> -->
 
   <div class="addButton">
     <app-button (btnClick)="redirectToNewContent()" [roundedFullSquared]="true" [variant]="'icon'" [color]="'primary'">

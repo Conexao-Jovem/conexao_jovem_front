@@ -1,5 +1,4 @@
 import { ScaleStatus } from '../../../@types/scaleStatus.enum';
-import { User } from '../../user/@types/find.dto';
 
 /**
  * Representa uma escala no sistema.
@@ -15,7 +14,7 @@ export class Scale {
    * Identificador do ministério associado à escala.
    * @type {number}
    */
-  ministeryID!: number;
+  ministeryID!: string;
 
   /**
    * Identificador único da escala.

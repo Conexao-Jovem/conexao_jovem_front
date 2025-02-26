@@ -25,11 +25,11 @@ export class SidebarComponent implements OnInit {
   }
 
   readonly Options = [
-    {
-      icon: House,
-      path: '',
-      label: 'Início'
-    },
+    // {
+    //   icon: House,
+    //   path: '',
+    //   label: 'Início'
+    // },
     {
       icon: Calendar,
       path: 'calendar',
