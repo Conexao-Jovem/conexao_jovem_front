@@ -11,6 +11,7 @@ import { CreateScaleDto } from '../../../../../data/services/scales/@types/creat
 import { Router } from '@angular/router';
 import { UserInputComponent } from '../../../../../ui/components/inputs/user-input/user-input.component';
 import { User } from '../../../../../data/services/user/@types/find.dto';
+import { ScaleService } from '../../../../../data/services/firebaseServices/scale/scale.service';
 
 @Component({
   selector: 'app-new-scale',
@@ -22,6 +23,7 @@ export class NewScaleComponent implements OnInit {
   readonly XIcon = X;
   scales: Scale[] = [];
   form!: FormGroup;
+  users: Set<User> = new Set<User>();
 
   departmentOptions: Partial<HTMLOptionElement>[] = [
     {
@@ -35,7 +37,7 @@ export class NewScaleComponent implements OnInit {
     ariaPlaceholder: 'Selecione um departamento'
   };
 
-  constructor(private ministeryService: MinisteryService, private router: Router) {}
+  constructor(private ministeryService: MinisteryService, private scaleService: ScaleService, private router: Router) {}
 
   async ngOnInit(): Promise<void> {
     this.form = new FormGroup({
@@ -69,14 +71,14 @@ export class NewScaleComponent implements OnInit {
   async createScale() {
     const newScale: CreateScaleDto = {
       date: this.form.value.date,
-      ministeryID: this.form.value.department
+      ministeryID: this.form.value.department,
+      membersId: Array.from(this.users).map(user => user.id)
     };
-    console.log(newScale);
 
-    // await this.ministeryService.create(newScale);
+    await this.scaleService.create(newScale);
   }
 
   onSelectUser(user: User[]) {
-    console.log(user);
+    this.users = new Set<User>(user);
   }
 }

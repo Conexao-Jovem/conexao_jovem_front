@@ -2,15 +2,22 @@
 @use '../../../../../ui/styles/colors' as colors;
 
 .container {
+  &,
+  &__form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__form {
+    flex: 1;
+  }
+
   &__footer {
-    position: absolute;
-    bottom: 72px;
-    left: 50%;
-    transform: translateX(-50%);
-    max-width: 95vw;
     @include mixins.vertical-align;
     gap: 8px;
     width: 100%;
+    margin-top: 32px;
 
     > app-button:last-child {
       width: 100%;
