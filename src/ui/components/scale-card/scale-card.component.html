@@ -4,14 +4,14 @@
       <img src="https://github.com/Conexao-Jovem.png" [alt]="ministery" />
       <h3>{{ ministery.name }}</h3>
     </div>
-    <p>{{ date }}</p>
+    <p>{{ parsedDate }}</p>
   </header>
   <div class="card__members">
     <h3>Membros</h3>
     <ul class="card__members__list">
       @for (member of members; track $index) {
       <li>
-        <img [src]="member.imgUrl" [alt]="member.name" />
+        <p>{{ member.name }}</p>
       </li>
       }
     </ul>

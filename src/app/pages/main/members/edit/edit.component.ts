@@ -1,24 +1,32 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ButtonComponent } from '../../../../../ui/components/button/button.component';
 import { TitleComponent } from '../../../../../ui/components/title/title.component';
 import { TextInputComponent } from '../../../../../ui/components/inputs/text-input/text-input.component';
 import { SelectInputComponent } from '../../../../../ui/components/inputs/select-input/select-input.component';
-import { FileInputComponent } from '../../../../../ui/components/inputs/file-input/file-input.component';
-import { ButtonComponent } from '../../../../../ui/components/button/button.component';
-import { UserService } from '../../../../../data/services/firebaseServices/user/user.service';
-import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CreateUserDto } from '../../../../../data/services/user/@types/create.dto';
+import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { UserService } from '../../../../../data/services/firebaseServices/user/user.service';
 import { MinisteryService } from '../../../../../data/services/firebaseServices/ministery/ministery.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { arrayUnion } from 'firebase/firestore';
+import { User } from '../../../../../data/services/user/@types/find.dto';
+import { firstValueFrom } from 'rxjs';
 
 @Component({
-  selector: 'app-new',
-  imports: [TitleComponent, TextInputComponent, SelectInputComponent, FileInputComponent, ButtonComponent, ReactiveFormsModule],
-  templateUrl: './new.component.html',
-  styleUrl: './new.component.scss'
+  selector: 'app-edit',
+  imports: [ButtonComponent, TitleComponent, TextInputComponent, SelectInputComponent, ReactiveFormsModule],
+  templateUrl: './edit.component.html',
+  styleUrl: './edit.component.scss'
 })
-export class NewMemberPage implements OnInit {
-  form!: FormGroup;
+export class EditUserPage {
+  form: FormGroup = new FormGroup({
+    email: new FormControl(''),
+    name: new FormControl(''),
+    lastname: new FormControl(''),
+    department: new FormControl('')
+  });
+  userId: string = '';
+  user!: User;
 
   departmentOptions: Partial<HTMLOptionElement>[] = [
     {
@@ -27,18 +35,21 @@ export class NewMemberPage implements OnInit {
     }
   ];
 
-  constructor(private userService: UserService, private ministeryService: MinisteryService, private router: Router) {}
+  constructor(private userService: UserService, private ministeryService: MinisteryService, private router: Router, private route: ActivatedRoute) {}
 
   async ngOnInit(): Promise<void> {
-    this.form = new FormGroup({
-      // image: new FormControl(null, [Validators.required]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      name: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      lastname: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      department: new FormControl('')
-    });
-
     await this.loadDepartments();
+
+    this.userId = await firstValueFrom(this.route.paramMap).then(params => params.get('id') || '');
+
+    this.user = (await this.userService.findById(this.userId)) || ({} as User);
+
+    this.form = new FormGroup({
+      email: new FormControl(this.user.email || '', [Validators.required, Validators.email]),
+      name: new FormControl(this.user.name.split(' ')[0] || '', [Validators.required, Validators.minLength(3)]),
+      lastname: new FormControl(this.user.name.split(' ')[1] || '', [Validators.required, Validators.minLength(3)]),
+      department: new FormControl(this.user.ministeryID || '')
+    });
   }
 
   async loadDepartments() {
@@ -50,27 +61,21 @@ export class NewMemberPage implements OnInit {
 
   async onSubmit(): Promise<void> {
     if (this.form.valid) {
-      this.createUser();
-      console.log('Sucesso');
+      await this.updateUser();
       this.router.navigate(['/main/members']);
     } else {
-      console.log('Formulário inválido');
     }
   }
 
-  async createUser() {
-    const user: CreateUserDto = {
+  async updateUser() {
+    const updatedUser: Partial<User> = {
       email: this.form.value.email,
       name: `${this.form.value.name} ${this.form.value.lastname}`,
       ministeryID: this.form.value.department || '',
-      password: `${this.form.value.name}@conexao`,
-      imgUrl: `defaultUser.png`
+      imgUrl: this.user.imgUrl || 'defaultUser.png'
     };
 
-    const newUser = await this.userService.create(user);
-    await this.ministeryService.update(this.form.value.department, {
-      membersId: arrayUnion(newUser)
-    });
+    await this.userService.update(this.userId, updatedUser);
   }
 
   emailInput: Partial<HTMLInputElement> = {

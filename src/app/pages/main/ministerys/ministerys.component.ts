@@ -6,6 +6,7 @@ import { MinisteryCardComponent } from '../../../../ui/components/ministery-card
 import { Ministery } from '../../../../data/services/ministery/@types/find.dto';
 import { RouterModule } from '@angular/router';
 import { MinisteryService } from '../../../../data/services/firebaseServices/ministery/ministery.service';
+import { UserService } from '../../../../data/services/firebaseServices/user/user.service';
 
 @Component({
   selector: 'app-ministerys',
@@ -17,10 +18,16 @@ export class MinisterysPage implements OnInit {
   readonly FilterIcon = Filter;
   ministerys: Ministery[] = [];
 
-  constructor(private ministeryService: MinisteryService) {}
+  constructor(private ministeryService: MinisteryService, private userService: UserService) {}
 
   async ngOnInit(): Promise<void> {
-    this.ministerys = await this.ministeryService.findAll();
-    console.log(this.ministerys);
+    const ministerys = await this.ministeryService.findAll();
+
+    this.ministerys = await Promise.all(
+      ministerys.map(async ministery => {
+        const members = (await this.userService.findByDepartment(ministery.id)).map(user => user.id);
+        return { ...ministery, membersId: members };
+      })
+    );
   }
 }

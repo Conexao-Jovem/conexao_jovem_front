@@ -33,7 +33,6 @@ export class NewMinisteryPage implements OnInit {
 
   ngOnInit(): void {
     this.form = new FormGroup({
-      image: new FormControl(null, [Validators.required]),
       title: new FormControl('', [Validators.required])
     });
   }

@@ -1,7 +1,6 @@
 <main class="container">
-  <app-title [subTitle]="'Preencha as informações abaixo'" title="Novo Membro" />
+  <app-title [subTitle]="'Preencha as informações abaixo'" title="Editar Membro" />
   <form [formGroup]="form" class="container__form" (ngSubmit)="onSubmit()">
-    <!-- <app-file-input formControlName="image" /> -->
     <app-text-input formControlName="email" [inputProps]="emailInput" [label]="'E-mail'" />
     <app-text-input formControlName="name" [inputProps]="nameInput" [label]="'Nome'" />
     <app-text-input formControlName="lastname" [inputProps]="lastnameInput" [label]="'Sobrenome'" />

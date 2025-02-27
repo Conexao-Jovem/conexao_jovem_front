@@ -18,23 +18,52 @@
         object-fit: cover;
         border-radius: 50%;
       }
+
+      > h3 {
+        color: colors.$gray-12;
+        font-weight: 600;
+      }
+    }
+
+    > p {
+      color: colors.$gray-12;
+      font-size: 0.85rem;
     }
   }
 
   &__members {
     margin-top: 12px;
 
+    > h3 {
+      color: colors.$gray-12;
+      font-weight: 500;
+    }
+
     &__list {
       margin-top: 8px;
-      @include mixins.vertical-align;
       gap: 4px;
 
       > li {
+        margin-top: 12px;
+        margin-left: 8px;
+        position: relative;
         > img {
           border-radius: 50%;
           max-width: 32px;
           aspect-ratio: 1;
           object-fit: cover;
+        }
+
+        &::before {
+          width: 6px;
+          aspect-ratio: 1;
+          border-radius: 50%;
+          background-color: black;
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: -10px;
+          transform: translate(0%, -50%);
         }
       }
     }

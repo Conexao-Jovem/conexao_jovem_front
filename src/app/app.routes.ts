@@ -7,6 +7,7 @@ import { MembersPage } from './pages/main/members/members.component';
 import { NewMemberPage } from './pages/main/members/new/new.component';
 import { MainTemplateComponent } from './templates/main/main.component';
 import { NewScaleComponent } from './pages/main/calendar/new-scale/new-scale.component';
+import { EditUserPage } from './pages/main/members/edit/edit.component';
 
 export const routes: Routes = [
   {
@@ -41,6 +42,10 @@ export const routes: Routes = [
       {
         path: 'members/new',
         component: NewMemberPage
+      },
+      {
+        path: 'members/edit/:id',
+        component: EditUserPage
       },
       {
         path: 'ministerys',

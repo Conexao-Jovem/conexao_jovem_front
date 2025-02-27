@@ -7,7 +7,13 @@
   <ul class="container__members">
     @for (member of members; track $index) {
     <li>
-      <app-user-card [ministeryId]="member.ministeryID" [imgUrl]="member.imgUrl" [name]="member.name"></app-user-card>
+      <app-user-card
+        [onClickEditUser]="onClickToEditUser"
+        [userId]="member.id"
+        [ministeryId]="member.ministeryID"
+        [imgUrl]="member.imgUrl"
+        [name]="member.name"
+      ></app-user-card>
     </li>
     }
   </ul>

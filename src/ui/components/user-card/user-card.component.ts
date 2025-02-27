@@ -15,6 +15,9 @@ export class UserCardComponent implements OnInit {
   @Input() imgUrl: string = '';
   @Input() selectToListMode?: boolean;
   @Input() lastParticipation?: Date;
+  @Input() onClickEditUser?: (userId: string) => void;
+
+  @Input() userId: string = '';
 
   readonly EditIcon = Pencil;
   readonly DeleteIcon = Trash2;

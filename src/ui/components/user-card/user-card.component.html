@@ -15,12 +15,12 @@
   </div>
   <div class="card__actions">
     @if (!selectToListMode) {
-    <app-button [color]="'none'" [variant]="'icon'">
+    <app-button (btnClick)="onClickEditUser?.(userId)" [color]="'none'" [variant]="'icon'">
       <lucide-angular size="16" [img]="EditIcon"></lucide-angular>
     </app-button>
-    <app-button [color]="'none'" [variant]="'icon'">
+    <!-- <app-button [color]="'none'" [variant]="'icon'">
       <app-two-dot-icon></app-two-dot-icon>
-    </app-button>
+    </app-button> -->
     } @if(selectToListMode){
     <app-button [color]="'cancel'" [variant]="'icon'">
       <lucide-angular size="16" [img]="DeleteIcon"></lucide-angular>
